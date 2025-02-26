@@ -13,20 +13,27 @@ h1 {
     line-height: 1.2;
 }
 
-.dropdown {
+#works-btn {
     cursor: pointer;
-    font-weight: bold;
 }
 
-.dropdown-menu {
+#works-list {
     display: none;
-    list-style: none;
-    padding: 0;
+    position: absolute;
+    left: 220px; /* Moves it next to the menu */
+    top: 80px; /* Adjust if needed */
+    background: white;
+    padding: 10px;
+    border: 1px solid black;
 }
 
-.dropdown-menu li {
+#works-list p {
     cursor: pointer;
     margin: 5px 0;
+}
+
+#works-btn.clicked {
+    color: purple; /* Changes to purple when clicked */
 }
 
 #content {
