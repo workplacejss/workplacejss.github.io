@@ -55,6 +55,7 @@ h1 {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
+    margin-bottom: 20px; /* Adjust space below header */
 }
 
 
