@@ -17,7 +17,6 @@ function showWork(workId) {
 
 window.onload = function() {
     document.getElementById("works-btn").classList.remove("clicked");
-    document.getElementById("header-title").style.color = "#0000EE"; // Reset header color
 
     // Reset all menu items (CV, About, Contact)
     let menuItems = document.querySelectorAll("#nav a"); 
