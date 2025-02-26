@@ -59,7 +59,7 @@ h1 {
 }
 
 #header-title {
-    font-size: 50px; /* Adjust this to match the original header size */
+    font-size: 42px; /* Adjust this to match the original header size */
     font-weight: bold; /* Keep it bold if it was before */
     color: black;
     text-decoration: none; /* Remove underline */
