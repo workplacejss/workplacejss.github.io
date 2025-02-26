@@ -16,6 +16,3 @@ function showWork(workId) {
     document.getElementById(workId).style.display = 'block';
 }
 
-window.onload = function() {
-    document.getElementById("works-btn").classList.remove("clicked");
-};
