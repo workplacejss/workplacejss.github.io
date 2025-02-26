@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-</head>
+    <title>WORKPLACE JSS</title>
     <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hi, I'm Jacob Shippee, and this is my portfolio!</p>
-    <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Watch My Video</a></p>
+
+    <div id="menu">
+        <h1>[WORKPLACE<br>JSS]</h1>
+        <p class="dropdown">WORKS ▼</p>
+        <ul class="dropdown-menu">
+            <li onclick="showWork('work1')">Work 1</li>
+            <li onclick="showWork('work2')">Work 2</li>
+            <li onclick="showWork('work3')">Work 3</li>
+        </ul>
+        <p><a href="about.html">ABOUT</a></p>
+        <p><a href="cv.html">CV</a></p>
+        <p><a href="contact.html">CONTACT</a></p>
+    </div>
+
+    <div id="content">
+        <div id="work1" class="work-content">
+            <h2>Work 1</h2>
+            <p>Description of Work 1.</p>
+            <img src="work1.jpg" alt="Work 1">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="work2" class="work-content">
+            <h2>Work 2</h2>
+            <p>Description of Work 2.</p>
+            <img src="work2.jpg" alt="Work 2">
+        </div>
+        <div id="work3" class="work-content">
+            <h2>Work 3</h2>
+            <p>Description of Work 3.</p>
+            <img src="work3.jpg" alt="Work 3">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
