@@ -22,8 +22,8 @@ h1 {
 #works-list {
     display: none;
     position: absolute;
-    left: 220px; /* Moves it next to the menu */
-    top: 80px; /* Adjust if needed */
+    left: 170px; /* Moves it next to the menu */
+    top: 20px; /* Adjust if needed */
     background: white;
     padding: 10px;
     border: 1px solid black;
@@ -55,15 +55,6 @@ h1 {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
-}
-
-#works-list {
-    position: absolute; /* Positions it relative to the nearest positioned parent */
-    left: 200px; /* Move it right (adjust as needed) */
-    top: 0px; /* Move it down from "WORKS" */
-    background-color: white; /* Optional: background color */
-    padding: 10px; /* Add some spacing */
-    border: 1px solid black; /* Optional: border for visibility */
 }
 
 
