@@ -47,3 +47,13 @@ h1 {
 .work-content {
     display: none;
 }
+
+#header-title {
+    color: #0000EE; /* Matches menu's default blue */
+    text-decoration: none; /* Removes underline */
+    cursor: pointer;
+}
+
+#header-title:active {
+    color: #551A8B; /* Matches clicked menu purple */
+}
