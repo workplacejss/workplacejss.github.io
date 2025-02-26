@@ -59,15 +59,11 @@ h1 {
 }
 
 #header-title {
-    font-size: 40px; /* Keep original size */
+    font-size: 32px; /* Keep original size */
     font-weight: bold;
     color: black; 
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
-}
-
-#header-title:visited {
-    color: #551A8B; /* Stays purple after being clicked */
 }
 
