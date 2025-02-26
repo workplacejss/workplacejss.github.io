@@ -1,13 +1,12 @@
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
     let worksBtn = document.getElementById("works-btn");
-    
+
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
-        worksBtn.classList.remove("clicked");
     } else {
         worksList.style.display = "block";
-        worksBtn.classList.add("clicked");
+        worksBtn.style.color = "#551A8B"; // Keeps it purple
     }
 }
 
