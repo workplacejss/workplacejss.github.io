@@ -15,3 +15,7 @@ function showWork(workId) {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById(workId).style.display = 'block';
 }
+
+window.onload = function() {
+    document.getElementById("works-btn").classList.remove("clicked");
+};
