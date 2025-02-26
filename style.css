@@ -57,3 +57,16 @@ h1 {
 #header-title:active {
     color: #551A8B; /* Matches clicked menu purple */
 }
+
+#header-title {
+    font-size: 32px; /* Adjust this to match the original header size */
+    font-weight: bold; /* Keep it bold if it was before */
+    color: #0000EE; /* Blue like the menu */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+    display: inline-block; /* Helps keep formatting */
+}
+
+#header-title:active {
+    color: #551A8B; /* Purple when clicked */
+}
