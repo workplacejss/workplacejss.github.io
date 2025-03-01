@@ -18,15 +18,15 @@ h1 {
     color: #0000EE;
     text-decoration: underline;
 }
+#works-list a {
+    display: block; /* Ensures list items stack */
+    margin-bottom: 5px; /* Adds spacing */
+    color: #0000EE; /* Default blue */
+    text-decoration: underline; /* Matches other links */
+}
 
-#works-list {
-    display: none;
-    position: absolute;
-    left: 130px; /* Moves it next to the menu */
-    top: 120px; /* Adjust if needed */
-    background: white;
-    padding: 10px;
-    border: 1px solid black;
+#works-list a.clicked {
+    color: #551A8B !important; /* Purple when clicked */
 }
 
 #works-list p {
