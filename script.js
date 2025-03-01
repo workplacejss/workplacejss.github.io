@@ -46,4 +46,12 @@ function showWork(workId) {
     };
 
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
+
+    // Reset all links to default blue
+    document.querySelectorAll("#works-list a").forEach(link => {
+        link.classList.remove("clicked");
+    });
+
+    // Set clicked work to purple
+    event.target.classList.add("clicked");
 }
