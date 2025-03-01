@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     worksItems.forEach(item => {
         item.addEventListener('click', function() {
-            worksItems.forEach(i => i.classList.remove('clicked')); // Remove 'clicked' class from all items
-            this.classList.add('clicked'); // Add 'clicked' class to the clicked item
+            item.classList.add('clicked'); // Add 'clicked' class to the clicked item
         });
     });
 
