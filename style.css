@@ -4,7 +4,7 @@ body {
 }
 
 #menu {
-    width: 190px;
+    width: 225px;
     padding: 20px;
 }
 
@@ -26,7 +26,7 @@ h1 {
     background-color: white;
     border: 1px solid black;
     padding: 10px;
-    width: 200px;
+    width: 160px;
 }
 
 #works-list a {
