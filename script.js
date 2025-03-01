@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const worksItems = document.querySelectorAll('#works-list a');
+    
+    worksItems.forEach(item => {
+        item.addEventListener('click', function() {
+            worksItems.forEach(i => i.classList.remove('clicked')); // Remove 'clicked' class from all items
+            this.classList.add('clicked'); // Add 'clicked' class to the clicked item
+        });
+    });
+
+    const menuItems = document.querySelectorAll('#menu a');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuItems.forEach(link => link.style.color = '#0000EE'); // Reset all to blue
+            this.style.color = '#551A8B'; // Make clicked one purple
+            document.getElementById('header-title').style.color = '#000000'; // Ensure header stays black
+        });
+    });
+});
+
+// Existing functions
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
     let worksBtn = document.getElementById("works-btn");
@@ -58,17 +80,7 @@ window.onload = function() {
         item.addEventListener("click", function() {
             menuItems.forEach(link => link.style.color = "#0000EE"); // Reset all to blue
             this.style.color = "#551A8B"; // Make clicked one purple
+            document.getElementById("header-title").style.color = "#000000"; // Ensure header stays black
         });
     });
 };
-
-document.addEventListener('DOMContentLoaded', function() {
-    const worksItems = document.querySelectorAll('#works-list a');
-    
-    worksItems.forEach(item => {
-        item.addEventListener('click', function() {
-            worksItems.forEach(i => i.classList.remove('clicked')); // Remove 'clicked' class from all items
-            this.classList.add('clicked'); // Add 'clicked' class to the clicked item
-        });
-    });
-});
