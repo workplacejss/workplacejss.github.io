@@ -23,7 +23,7 @@ h1 {
     display: none;
     position: absolute;
     left: 130px; /* Moves it next to the menu */
-    top: 125px; /* Adjust if needed */
+    top: 120px; /* Adjust if needed */
     background: white;
     padding: 10px;
     border: 1px solid black;
