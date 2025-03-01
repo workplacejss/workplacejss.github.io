@@ -61,3 +61,14 @@ window.onload = function() {
         });
     });
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const worksItems = document.querySelectorAll('#works-list a');
+    
+    worksItems.forEach(item => {
+        item.addEventListener('click', function() {
+            worksItems.forEach(i => i.classList.remove('clicked')); // Remove 'clicked' class from all items
+            this.classList.add('clicked'); // Add 'clicked' class to the clicked item
+        });
+    });
+});
