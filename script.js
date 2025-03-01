@@ -32,7 +32,10 @@ function showWork(workId) {
     });
 
     // Set clicked work to purple
-    event.target.style.color = "#551A8B";
+    let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
+    if (clickedLink) {
+        clickedLink.style.color = "#551A8B"; // Set clicked item to purple
+    }
 }
 
 window.onload = function() {
