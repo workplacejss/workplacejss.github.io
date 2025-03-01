@@ -4,33 +4,12 @@ function toggleWorks() {
 
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
+        worksBtn.style.color = "#0000EE"; // Reset to blue when closed
     } else {
         worksList.style.display = "block";
-        worksBtn.style.color = "#551A8B"; // Keeps it purple
+        worksBtn.style.color = "#551A8B"; // Keep purple when open
     }
 }
-
-function showWork(workId) {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
-    document.getElementById(workId).style.display = 'block';
-}
-
-window.onload = function() {
-    document.getElementById("works-btn").classList.remove("clicked");
-
-    // Reset all menu items (CV, About, Contact)
-    let menuItems = document.querySelectorAll("#nav a"); 
-    menuItems.forEach(item => {
-        item.style.color = "#0000EE"; // Reset to blue
-    });
-};
-
-// Change color when clicked
-document.querySelectorAll("#nav a").forEach(item => {
-    item.addEventListener("click", function() {
-        this.style.color = "#551A8B"; // Turn purple when clicked
-    });
-});
 
 function showWork(workId) {
     let content = {
@@ -47,11 +26,29 @@ function showWork(workId) {
 
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
-    // Reset all links to default blue
+    // Reset all works to default blue
     document.querySelectorAll("#works-list a").forEach(link => {
-        link.classList.remove("clicked");
+        link.style.color = "#0000EE"; // Reset to blue
     });
 
     // Set clicked work to purple
-    event.target.classList.add("clicked");
+    event.target.style.color = "#551A8B";
 }
+
+window.onload = function() {
+    document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
+
+    // Reset all menu items (CV, About, Contact)
+    let menuItems = document.querySelectorAll("#menu a"); 
+    menuItems.forEach(item => {
+        item.style.color = "#0000EE"; // Reset to blue
+    });
+
+    // Add event listeners to menu items
+    menuItems.forEach(item => {
+        item.addEventListener("click", function() {
+            menuItems.forEach(link => link.style.color = "#0000EE"); // Reset all to blue
+            this.style.color = "#551A8B"; // Make clicked one purple
+        });
+    });
+};
