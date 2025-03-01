@@ -65,4 +65,9 @@ h1 {
     margin-bottom: 20px; /* Adjust space below header */
 }
 
+#header-title {
+    color: black; /* Change header text color to black */
+}
+
+
 
