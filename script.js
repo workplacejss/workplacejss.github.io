@@ -26,15 +26,18 @@ function showWork(workId) {
 
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
-    // Reset all works to default blue
+    // Keep all previously clicked works purple
     document.querySelectorAll("#works-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
+        if (link.dataset.clicked !== "true") {
+            link.style.color = "#0000EE"; // Reset only unclicked ones
+        }
     });
 
-    // Set clicked work to purple
+    // Set clicked work to purple and mark it as clicked
     let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
     if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Set clicked item to purple
+        clickedLink.style.color = "#551A8B"; // Stay purple
+        clickedLink.dataset.clicked = "true"; // Mark as clicked
     }
 }
 
@@ -46,6 +49,9 @@ window.onload = function() {
     menuItems.forEach(item => {
         item.style.color = "#0000EE"; // Reset to blue
     });
+
+    // Set header color to black
+    document.getElementById("header-title").style.color = "#000000";
 
     // Add event listeners to menu items
     menuItems.forEach(item => {
