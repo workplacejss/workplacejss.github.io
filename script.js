@@ -38,7 +38,7 @@ function showWork(workId) {
         "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
         "eliza": "<h2>ELIZA</h2><p>Description of the piece.</p>",
         "body-in-flux": "<h2>Body in Flux</h2><p>Description of the piece.</p>",
-        "nepenthe": "<h2>Nepenthe</h2><p>Description of the piece.</p>",
+        "nepenthe": "<h2>Nepenthe [WIP]</h2><p>Description of the piece.</p>",
         "stasis": "<h2>Stasis</h2><p>Description of the piece.</p>",
         "effigy-1": "<h2>Effigy 1</h2><p>Description of the piece.</p>",
         "grafting": "<h2>Grafting</h2><p>Description of the piece.</p>",
