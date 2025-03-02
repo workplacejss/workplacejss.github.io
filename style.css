@@ -77,6 +77,12 @@ h1 {
     margin: 20px auto;
 }
 
+.video-wrapper {
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+
 
 
 
