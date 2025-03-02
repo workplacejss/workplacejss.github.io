@@ -22,11 +22,11 @@ h1 {
     display: none; /* Hidden by default */
     position: absolute;
     left: 155px; /* Moves it to the right of the menu */
-    top: 90px; /* Aligns it properly */
+    top: 78px; /* Aligns it properly */
     background-color: white;
     border: 1px solid black;
     padding: 25px;
-    width: 200px;
+    width: 125px;
 }
 
 #works-list a {
@@ -74,9 +74,9 @@ h1 {
     top: 100px;  /* Move it down */
     left: 200px; /* Move it right */
     border: 1px solid black;
-    padding: 20px;
+    padding: 25px;
     background-color: white;
-    width: 400px; /* Adjust width */
+    width: 600px; /* Adjust width */
 }
 
 
