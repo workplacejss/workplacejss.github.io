@@ -22,7 +22,7 @@ h1 {
     display: none; /* Hidden by default */
     position: absolute;
     left: 145px; /* Moves it to the right of the menu */
-    top: 78px; /* Aligns it properly */
+    top: 100px; /* Aligns it properly */
     background-color: white;
     border: 1px solid black;
     padding: 25px;
