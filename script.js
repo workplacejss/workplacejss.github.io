@@ -45,6 +45,19 @@ function showWork(workId) {
         "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
     };
 
+    // Hide all work-content divs
+    document.querySelectorAll('.work-content').forEach(work => {
+        work.style.display = 'none';
+    });
+
+    // Show the selected work content and update its inner HTML
+    let workElement = document.getElementById(workId);
+    if (workElement) {
+        workElement.innerHTML = content[workId];
+        workElement.style.display = 'block';
+    }
+}
+
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
     // Keep all previously clicked works purple
