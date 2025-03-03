@@ -86,8 +86,5 @@ window.onload = function() {
     });
 };
 
-function showWork(workId) {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
-    document.getElementById(workId).style.display = 'block';
-}
+
 
