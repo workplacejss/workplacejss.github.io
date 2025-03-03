@@ -89,8 +89,13 @@ window.onload = function() {
     // Add event listeners to menu items
     menuItems.forEach(item => {
         item.addEventListener("click", function() {
-            menuItems.forEach(link => link.style.color = "#0000EE"); // Reset all to blue
+            menuItems.forEach(link => {
+                if (!link.classList.contains('clicked')) {
+                    link.style.color = "#0000EE"; // Reset unclicked items to blue
+                }
+            });
             this.style.color = "#551A8B"; // Make clicked one purple
+            this.classList.add('clicked');
             document.getElementById("header-title").style.color = "#000000"; // Ensure header stays black
         });
     });
@@ -110,5 +115,3 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
-
-
