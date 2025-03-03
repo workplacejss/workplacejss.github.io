@@ -1,22 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
-    
+    const menuItems = document.querySelectorAll('#menu a, #works-btn');
+
+    // Keep clicked items purple
+    function markClicked(item) {
+        item.style.color = '#551A8B'; // Set purple
+        item.classList.add('clicked');
+    }
+
+    // Handle Works menu items
     worksItems.forEach(item => {
         item.addEventListener('click', function() {
-            item.classList.add('clicked'); // Add 'clicked' class to the clicked item
+            markClicked(this);
         });
     });
 
-    const menuItems = document.querySelectorAll('#menu a');
-
+    // Handle About & Contact menu items
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
-            menuItems.forEach(link => link.style.color = '#0000EE'); // Reset all to blue
-            this.style.color = '#551A8B'; // Make clicked one purple
-            document.getElementById('header-title').style.color = '#000000'; // Ensure header stays black
+            // Only reset items that weren't clicked before
+            menuItems.forEach(link => {
+                if (!link.classList.contains('clicked')) {
+                    link.style.color = '#0000EE'; // Reset unclicked items to blue
+                }
+            });
+            markClicked(this);
         });
     });
 });
+
 
 // Existing functions
 function toggleWorks() {
