@@ -49,7 +49,6 @@ h1 {
     flex-grow: 1;
     padding: 20px;
     background: #fff;
-    padding-bottom: 150px; /* Extra space at bottom */
 }
 
 .work-content {
@@ -71,13 +70,14 @@ h1 {
 }
 
 .work-box {
-    position: absolute; /* or fixed if you want it to stay in place while scrolling */
+    position: relative; /* or fixed if you want it to stay in place while scrolling */
     top: 33px;  /* Move it down */
     left: 400px; /* Move it right */
     border: 1px solid black;
     padding: 25px;
     background-color: white;
     width: 600px; /* Adjust width */
+    margin-bottom: 150px;
 }
 
 .work-image {
