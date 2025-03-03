@@ -45,8 +45,6 @@ function showWork(workId) {
         "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
     };
 
-}
-
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
     // Keep all previously clicked works purple
@@ -86,5 +84,7 @@ window.onload = function() {
     });
 };
 
-
-
+function showWork(workId) {
+    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    document.getElementById(workId).style.display = 'block';
+}
