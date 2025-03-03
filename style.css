@@ -49,6 +49,7 @@ h1 {
     flex-grow: 1;
     padding: 20px;
     background: #fff;
+    padding-bottom: 150px; /* Extra space at bottom */
 }
 
 .work-content {
@@ -77,7 +78,6 @@ h1 {
     padding: 25px;
     background-color: white;
     width: 600px; /* Adjust width */
-    margin-bottom: 100px; /* Adds space below */
 }
 
 .work-image {
@@ -87,10 +87,6 @@ h1 {
     margin: 0 auto 20px; /* Adds space below */
 }
 
-html, body {
-    min-height: 100vh; /* Ensures full height */
-    padding-bottom: 150px; /* Adds extra scroll space */
-}
 
 
 
