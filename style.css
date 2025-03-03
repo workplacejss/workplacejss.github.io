@@ -21,7 +21,7 @@ h1 {
 #works-list {
     display: none; /* Hidden by default */
     position: absolute;
-    left: 155px; /* Moves it to the right of the menu */
+    left: 145px; /* Moves it to the right of the menu */
     top: 78px; /* Aligns it properly */
     background-color: white;
     border: 1px solid black;
