@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Existing functions
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
     let worksBtn = document.getElementById("works-btn");
@@ -101,6 +100,7 @@ function showWork(workId) {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById(workId).style.display = 'block';
 }
+
 function showAbout() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('about-section').style.display = 'block';
