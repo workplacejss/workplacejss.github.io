@@ -93,3 +93,9 @@ function showAbout() {
     document.getElementById('about-section').style.display = 'block';
 }
 
+function showContact() {
+    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    document.getElementById('contact-section').style.display = 'block';
+}
+
+
