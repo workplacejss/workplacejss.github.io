@@ -96,7 +96,6 @@ window.onload = function() {
             });
             this.style.color = "#551A8B"; // Make clicked one purple
             this.classList.add('clicked');
-            document.getElementById("header-title").style.color = "#000000"; // Ensure header stays black
         });
     });
 };
