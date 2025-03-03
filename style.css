@@ -70,7 +70,7 @@ h1 {
 }
 
 .work-box {
-    position: fixed; /* or fixed if you want it to stay in place while scrolling */
+    position: absolute; /* or fixed if you want it to stay in place while scrolling */
     top: 33px;  /* Move it down */
     left: 400px; /* Move it right */
     border: 1px solid black;
