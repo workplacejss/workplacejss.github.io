@@ -67,7 +67,7 @@ function showWork(workId) {
     });
 
     // Set clicked work to purple and mark it as clicked
-    let clickedLink = document.querySelector([onclick="showWork('${workId}')"]);
+    let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
     if (clickedLink) {
         clickedLink.style.color = "#551A8B"; // Stay purple
         clickedLink.dataset.clicked = "true"; // Mark as clicked
@@ -114,4 +114,3 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
-
