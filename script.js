@@ -1,108 +1,91 @@
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
-    const menuItems = document.querySelectorAll('#menu a, #works-btn');
+    const researchItems = document.querySelectorAll('#research-list a');
+    const menuItems = document.querySelectorAll('#menu a, #works-btn, #research-btn');
 
     function markClicked(item) {
-        item.style.color = '#551A8B'; // Make clicked item purple
+        item.style.color = '#551A8B'; // Purple for clicked
         item.classList.add('clicked');
     }
 
-    function resetUnclicked() {
-        menuItems.forEach(link => {
+    function resetUnclicked(scope = menuItems) {
+        scope.forEach(link => {
             if (!link.classList.contains('clicked')) {
-                link.style.color = '#0000EE'; // Reset unclicked items to blue
+                link.style.color = '#0000EE'; // Blue for unclicked
             }
         });
     }
 
-    // Handle Works menu items
+    // Works items
     worksItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
+            const workId = this.getAttribute('onclick')?.match(/'(.*?)'/)?.[1] || this.dataset.workId;
+            showWork(workId);
             markClicked(this);
+            resetUnclicked(worksItems);
         });
     });
 
-    // Handle About & Contact menu items
+    // Research items
+    researchItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const researchId = this.dataset.researchId;
+            showWork(researchId);
+            markClicked(this);
+            resetUnclicked(researchItems);
+        });
+    });
+
+    // Top-level menu items (CV, About, Contact, Works, Research)
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             markClicked(this);
-            resetUnclicked(); // Reset only unclicked items
+            resetUnclicked();
         });
     });
 });
 
 function toggleWorks() {
-    let worksList = document.getElementById("works-list");
-    let worksBtn = document.getElementById("works-btn");
+    const worksList = document.getElementById("works-list");
+    const worksBtn = document.getElementById("works-btn");
 
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
-        worksBtn.style.color = "#0000EE"; // Reset to blue when closed
+        worksBtn.style.color = "#0000EE";
     } else {
         worksList.style.display = "block";
-        worksBtn.style.color = "#551A8B"; // Keep purple when open
+        worksBtn.style.color = "#551A8B";
+
+        // Optional: close research
+        document.getElementById("research-list").style.display = "none";
+        document.getElementById("research-btn").style.color = "#0000EE";
     }
 }
 
-function showWork(workId) {
-    let content = {
-        "works-and-days": "<h2>Works and Days</h2><p>Description of the piece.</p>",
-        "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
-        "eliza": "<h2>ELIZA</h2><p>Description of the piece.</p>",
-        "body-in-flux": "<h2>Body in Flux</h2><p>Description of the piece.</p>",
-        "nepenthe": "<h2>Nepenthe [WIP]</h2><p>Description of the piece.</p>",
-        "stasis": "<h2>Stasis</h2><p>Description of the piece.</p>",
-        "effigy-1": "<h2>Effigy 1</h2><p>Description of the piece.</p>",
-        "grafting": "<h2>Grafting</h2><p>Description of the piece.</p>",
-        "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
-    };
+function toggleResearch() {
+    const researchList = document.getElementById("research-list");
+    const researchBtn = document.getElementById("research-btn");
 
-    document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
+    if (researchList.style.display === "block") {
+        researchList.style.display = "none";
+        researchBtn.style.color = "#0000EE";
+    } else {
+        researchList.style.display = "block";
+        researchBtn.style.color = "#551A8B";
 
-    // Keep all previously clicked works purple
-    document.querySelectorAll("#works-list a").forEach(link => {
-        if (link.dataset.clicked !== "true") {
-            link.style.color = "#0000EE"; // Reset only unclicked ones
-        }
-    });
-
-    // Set clicked work to purple and mark it as clicked
-    let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Stay purple
-        clickedLink.dataset.clicked = "true"; // Mark as clicked
+        // Optional: close works
+        document.getElementById("works-list").style.display = "none";
+        document.getElementById("works-btn").style.color = "#0000EE";
     }
 }
-
-window.onload = function() {
-    document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
-
-    // Reset all menu items (CV, About, Contact)
-    let menuItems = document.querySelectorAll("#menu a"); 
-    menuItems.forEach(item => {
-        item.style.color = "#0000EE"; // Reset to blue
-    });
-
-    // Set header color to black
-    document.getElementById("header-title").style.color = "#000000";
-
-    // Add event listeners to menu items
-    menuItems.forEach(item => {
-        item.addEventListener("click", function() {
-            menuItems.forEach(link => {
-                if (!link.classList.contains('clicked')) {
-                    link.style.color = "#0000EE"; // Reset unclicked items to blue
-                }
-            });
-            this.style.color = "#551A8B"; // Make clicked one purple
-            this.classList.add('clicked');
-        });
-    });
-};
 
 function showWork(workId) {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
-    document.getElementById(workId).style.display = 'block';
+    const contentDiv = document.getElementById(workId);
+    if (contentDiv) {
+        contentDiv.style.display = 'block';
+    }
 }
 
 function showAbout() {
@@ -114,14 +97,25 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
-<script>
-function toggleResearch() {
-    const researchList = document.getElementById("research-list");
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-    } else {
-        researchList.style.display = "block";
-    }
-}
-</script>
 
+window.onload = function() {
+    document.getElementById("works-btn").style.color = "#0000EE";
+    document.getElementById("research-btn").style.color = "#0000EE";
+
+    let menuItems = document.querySelectorAll("#menu a");
+    menuItems.forEach(item => {
+        item.style.color = "#0000EE";
+        item.addEventListener("click", function () {
+            menuItems.forEach(link => {
+                if (!link.classList.contains('clicked')) {
+                    link.style.color = "#0000EE";
+                }
+            });
+            this.style.color = "#551A8B";
+            this.classList.add('clicked');
+        });
+    });
+
+    document.getElementById("header-title").style.color = "#000000";
+};
+</script>
