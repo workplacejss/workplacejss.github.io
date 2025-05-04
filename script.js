@@ -115,3 +115,38 @@ function showContact() {
     document.getElementById('contact-section').style.display = 'block';
 }
 
+function toggleResearch() {
+    let researchList = document.getElementById("research-list");
+    let researchBtn = document.getElementById("research-btn");
+
+    if (researchList.style.display === "block") {
+        researchList.style.display = "none";
+        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
+    } else {
+        researchList.style.display = "block";
+        researchBtn.style.color = "#551A8B"; // Keep purple when open
+    }
+}
+
+function showResearch(researchId) {
+    let content = {
+        "research-item-1": "<h2>Research Item 1</h2><p>Description of research item 1.</p>",
+        "research-item-2": "<h2>Research Item 2</h2><p>Description of research item 2.</p>"
+    };
+
+    document.getElementById("research-content").innerHTML = content[researchId] || "<p>Select a research item to view details.</p>";
+
+    // Reset unclicked links to blue
+    document.querySelectorAll("#research-list a").forEach(link => {
+        if (link.dataset.clicked !== "true") {
+            link.style.color = "#0000EE";
+        }
+    });
+
+    // Set clicked research item to purple
+    let clickedLink = document.querySelector(`[onclick="showResearch('${researchId}')"]`);
+    if (clickedLink) {
+        clickedLink.style.color = "#551A8B";
+        clickedLink.dataset.clicked = "true";
+    }
+}
