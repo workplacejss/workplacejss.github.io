@@ -114,3 +114,14 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
+<script>
+function toggleResearch() {
+    const researchList = document.getElementById("research-list");
+    if (researchList.style.display === "block") {
+        researchList.style.display = "none";
+    } else {
+        researchList.style.display = "block";
+    }
+}
+</script>
+
