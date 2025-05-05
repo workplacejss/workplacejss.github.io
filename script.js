@@ -114,3 +114,18 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
+
+function toggleResearch() {
+    const researchList = document.getElementById('research-list');
+    if (researchList.style.display === 'none' || !researchList.style.display) {
+        researchList.style.display = 'block';
+    } else {
+        researchList.style.display = 'none';
+    }
+}
+
+function showResearch(researchId) {
+    const researchSections = document.querySelectorAll('.research-content');
+    researchSections.forEach(section => section.style.display = 'none');
+    document.getElementById(researchId).style.display = 'block';
+}
