@@ -1,3 +1,58 @@
+// Function to toggle the "Works" section
+function toggleWorks() {
+    let worksList = document.getElementById("works-list");
+    let worksBtn = document.getElementById("works-btn");
+
+    let isOpen = worksList.style.display === "block";
+    worksList.style.display = isOpen ? "none" : "block";
+    worksBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
+}
+
+// Function to toggle the "Research" section
+function toggleResearch() {
+    let researchList = document.getElementById("research-list");
+    let researchBtn = document.getElementById("research-btn");
+
+    let isOpen = researchList.style.display === "block";
+    researchList.style.display = isOpen ? "none" : "block";
+    researchBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
+}
+
+// Function to show the selected work or research
+function showWork(workId) {
+    const workContent = document.getElementById("work-content");
+    const researchContent = document.getElementById("research-content");
+
+    // Hide all contents first
+    document.querySelectorAll(".work-content").forEach(el => el.style.display = "none");
+    document.querySelectorAll(".research-content").forEach(el => el.style.display = "none");
+
+    // Decide where to show content
+    if (workId.startsWith("research")) {
+        researchContent.style.display = "block";
+        workContent.style.display = "none";
+        document.getElementById(workId).style.display = "block";
+    } else {
+        workContent.style.display = "block";
+        researchContent.style.display = "none";
+        document.getElementById(workId).style.display = "block";
+    }
+}
+
+// Function to show the "ABOUT" section
+function showAbout() {
+    const sections = document.querySelectorAll('.work-content');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById('about-section').style.display = 'block';
+}
+
+// Function to show the "CONTACT" section
+function showContact() {
+    const sections = document.querySelectorAll('.work-content');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById('contact-section').style.display = 'block';
+}
+
 // Initialize after DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
@@ -37,71 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function toggleWorks() {
-    let worksList = document.getElementById("works-list");
-    let worksBtn = document.getElementById("works-btn");
-
-    let isOpen = worksList.style.display === "block";
-    worksList.style.display = isOpen ? "none" : "block";
-    worksBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
-}
-
-function toggleResearch() {
-    let researchList = document.getElementById("research-list");
-    let researchBtn = document.getElementById("research-btn");
-
-    let isOpen = researchList.style.display === "block";
-    researchList.style.display = isOpen ? "none" : "block";
-    researchBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
-}
-
-function showWork(workId) {
-    const workContent = document.getElementById("work-content");
-    const researchContent = document.getElementById("research-content");
-
-    // Hide all contents first
-    document.querySelectorAll(".work-content").forEach(el => el.style.display = "none");
-    document.querySelectorAll(".research-content").forEach(el => el.style.display = "none");
-
-    // Decide where to show content
-    if (workId.startsWith("research")) {
-        researchContent.style.display = "block";
-        workContent.style.display = "none";
-        document.getElementById(workId).style.display = "block";
-    } else {
-        workContent.style.display = "block";
-        researchContent.style.display = "none";
-        document.getElementById(workId).style.display = "block";
-    }
-} 
-
-function showAbout() {
-    const sections = document.querySelectorAll('.work-content');
-    sections.forEach(section => section.style.display = 'none');
-    document.getElementById('about-section').style.display = 'block';
-}
-
-function showContact() {
-    const sections = document.querySelectorAll('.work-content');
-    sections.forEach(section => section.style.display = 'none');
-    document.getElementById('contact-section').style.display = 'block';
-}
-
-function showWork(workId) {
-    const workSections = document.querySelectorAll('.work-content');
-    workSections.forEach(section => (section.style.display = 'none'));
-
-    const targetWork = document.getElementById(workId);
-    if (targetWork) {
-        targetWork.style.display = 'block';
-    }
-}
-
+// Set default styles on window load
 window.onload = function() {
     document.getElementById("works-btn").style.color = "#0000EE";
     document.getElementById("research-btn").style.color = "#0000EE";
 
-    let menuItems = document.querySelectorAll("#menu a"); 
+    let menuItems = document.querySelectorAll("#menu a");
     menuItems.forEach(item => {
         item.style.color = "#0000EE";
         item.addEventListener("click", function() {
