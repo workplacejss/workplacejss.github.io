@@ -87,6 +87,46 @@ h1 {
     margin: 0 auto 20px; /* Adds space below */
 }
 
+#research-btn {
+    cursor: pointer;
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+#research-list {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 145px; /* Align with menu */
+    top: 200px; /* Position below WORKS */
+    background-color: white;
+    border: 1px solid black;
+    padding: 25px;
+    width: 125px;
+}
+
+#research-list a {
+    display: block;
+    margin-bottom: 5px;
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+#research-list a.clicked {
+    color: #551A8B !important;
+}
+
+.research-content {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    border: 1px solid black;
+    padding: 25px;
+    background-color: white;
+    width: 600px;
+    margin-bottom: 150px;
+}
+
 
 
 
