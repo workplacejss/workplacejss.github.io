@@ -130,7 +130,7 @@ function toggleResearch() {
     // Hide "Research" content when toggling
     researchContent.style.display = 'none';
 }
-
+ 
 // Function to show "Research" content in the box (like "Works")
 function showWork(workId) {
     const workSections = document.querySelectorAll('.work-content');
