@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
     const menuItems = document.querySelectorAll('#menu a, #works-btn');
-    const researchItems = document.querySelectorAll('#research-list a');
-    const researchItems = document.querySelectorAll('#menu a, #research-btn');
 
     function markClicked(item) {
         item.style.color = '#551A8B'; // Make clicked item purple
@@ -33,19 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-    // Handle Works research items
-    researchItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-        });
-    });
-
-
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
     let worksBtn = document.getElementById("works-btn");
-    let researchList = document.getElementById("research-list");
-    let researchBtn = document.getElementById("research-btn");
 
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
@@ -69,29 +57,6 @@ function showWork(workId) {
         "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
     };
 
-  });
-
-
-function toggleResearch() {
-    let researchList = document.getElementById("research-list");
-    let researchBtn = document.getElementById("research-btn");
-
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
-    } else {
-        researchList.style.display = "block";
-        researchBtn.style.color = "#551A8B"; // Keep purple when open
-    }
-}
-
-function showResearch(workId) {
-    let content = {
-        "a": "<h2>a</h2><p>a</p>",
-        "b": "<h2>b</h2><p>b</p>",
-       
-    };
-    
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
     // Keep all previously clicked works purple
@@ -103,29 +68,6 @@ function showResearch(workId) {
 
     // Set clicked work to purple and mark it as clicked
     let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Stay purple
-        clickedLink.dataset.clicked = "true"; // Mark as clicked
-    }
-}
-
-function showResearch(workId) {
-    let content = {
-        "works-and-days": "<h2>Works and Days</h2><p>Description of the piece.</p>",
-        "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
-    };
-
-    document.getElementById("research-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
-
-    // Keep all previously clicked works purple
-    document.querySelectorAll("#research-list a").forEach(link => {
-        if (link.dataset.clicked !== "true") {
-            link.style.color = "#0000EE"; // Reset only unclicked ones
-        }
-    });
-
-    // Set clicked work to purple and mark it as clicked
-    let clickedLink = document.querySelector(`[onclick="showResearch('${workId}')"]`);
     if (clickedLink) {
         clickedLink.style.color = "#551A8B"; // Stay purple
         clickedLink.dataset.clicked = "true"; // Mark as clicked
@@ -159,11 +101,6 @@ window.onload = function() {
 };
 
 function showWork(workId) {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
-    document.getElementById(workId).style.display = 'block';
-}
-
-function showResearch(workId) {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById(workId).style.display = 'block';
 }
