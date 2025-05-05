@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-</head>
-<body>
+
     <div id="menu">
-        <div id="header-title">[WORKPLACE<br>JSS]</div>
+        <div id="header-title" href="index.html">[WORKPLACE<br>JSS]</div>
         <p id="works-btn" onclick="toggleWorks()">WORKS</p>
-        <div id="works-list" style="display: none;">
+        <div id="works-list">
             <a href="#" onclick="showWork('works-and-days')">Works and Days</a>
             <a href="#" onclick="showWork('claustrum')">Claustrum</a>
             <a href="#" onclick="showWork('eliza')">ELIZA</a>
@@ -23,15 +22,9 @@
             <a href="#" onclick="showWork('grafting')">Grafting</a>
             <a href="#" onclick="showWork('adornations')">Adornations</a>
         </div>
+        <p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
+<p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
 
-        <p id="research-btn" onclick="toggleResearch()">RESEARCH</p>
-        <div id="research-list" style="display: none;">
-            <a href="#" onclick="showWork('research-1')">Research Work 1</a>
-            <a href="#" onclick="showWork('research-2')">Research Work 2</a>
-        </div>
-
-        <p><a href="#" id="about-btn" onclick="showWork('about')">ABOUT</a></p>
-        <p><a href="#" id="contact-btn" onclick="showWork('contact')">CONTACT</a></p>
     </div>
 
     <div id="content">
@@ -180,36 +173,6 @@
 </body>
 </html>
 
-  </div>
-
-<div id="content">
-    <div id="work-content">
-        <!-- Existing "Works" content -->
-    </div>
-    <div id="research-content" style="display: none;">
-        <div id="research-1" class="work-content">
-            <div class="work-box">
-                <img src="images/Research1.jpg" alt="Research Work 1" class="work-image">
-                <p>
-                    „Research Work 1”<br>
-                    Description of the research work.<br>
-                    Materials used, year, dimensions.
-                </p>
-            </div>
-        </div>
-        <div id="research-2" class="work-content" style="display: none;">
-            <div class="work-box">
-                <img src="images/Research2.jpg" alt="Research Work 2" class="work-image">
-                <p>
-                    „Research Work 2”<br>
-                    Description of the research work.<br>
-                    Materials used, year, dimensions.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="about-section" class="work-content" style="display: none;">
     <div class="work-box">
         <p>  JSS is a queer, transdiciplinary artist from New York City whose practice spans sculpture, installation, and sound. They explore the intersections between media, politics, queer culture, ecology, and their impacts on the body and mind. Currently based in Köln, Germany, JSS engages with a diverse range of materials and mediums to examine the forces that shape human identity and bodily experience within societal frameworks. <br> <br> JSS' work invites contemplation on the fluidity of identity and the influence of power structures on the body in contemporary life. Their sculptural and installation-based pieces are often immersive, encouraging viewers to engage with the physical and conceptual space of the work. Whether through the tactility of their sculptures or the atmospheric presence of their installations, JSS creates experiences that illuminate the internal structures of the world around us and highlight the complex negotiations of self within larger cultural contexts. JSS' installations serve as critical reflections on the entanglement of individual and collective identities, inviting audiences to question and reimagine their own positions within the societal landscape.
@@ -233,7 +196,3 @@
 
   gtag('config', 'G-KCX7KC7FP7');
 </script>
-
- <script src="script.js"></script>
-</body>
-</html>
