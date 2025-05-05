@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
     const menuItems = document.querySelectorAll('#menu a, #works-btn');
 
-    function markClicked(item) {
+    function markClicked(item) { 
         item.style.color = '#551A8B'; // Make clicked item purple
         item.classList.add('clicked');
     }
