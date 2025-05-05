@@ -69,6 +69,29 @@ function showWork(workId) {
         "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
     };
 
+  });
+
+
+function toggleResearch() {
+    let researchList = document.getElementById("research-list");
+    let researchBtn = document.getElementById("research-btn");
+
+    if (researchList.style.display === "block") {
+        researchList.style.display = "none";
+        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
+    } else {
+        researchList.style.display = "block";
+        researchBtn.style.color = "#551A8B"; // Keep purple when open
+    }
+}
+
+function showResearch(workId) {
+    let content = {
+        "a": "<h2>a</h2><p>a</p>",
+        "b": "<h2>b</h2><p>b</p>",
+       
+    };
+    
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
     // Keep all previously clicked works purple
