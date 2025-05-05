@@ -115,17 +115,45 @@ function showContact() {
     document.getElementById('contact-section').style.display = 'block';
 }
 
+// Function to toggle visibility of the "Research" list
 function toggleResearch() {
     const researchList = document.getElementById('research-list');
-    if (researchList.style.display === 'none' || !researchList.style.display) {
-        researchList.style.display = 'block';
-    } else {
-        researchList.style.display = 'none';
-    }
+    const workContent = document.getElementById('work-content');
+    const researchContent = document.getElementById('research-content');
+
+    // Hide "Works" content if "Research" is being shown
+    workContent.style.display = researchList.style.display === 'none' || !researchList.style.display ? 'none' : 'block';
+
+    // Toggle visibility of the "Research" list
+    researchList.style.display = researchList.style.display === 'none' || !researchList.style.display ? 'block' : 'none';
+
+    // Hide "Research" content when toggling
+    researchContent.style.display = 'none';
 }
 
-function showResearch(researchId) {
+// Function to show "Research" content in the box (like "Works")
+function showWork(workId) {
+    const workSections = document.querySelectorAll('.work-content');
+    workSections.forEach(section => (section.style.display = 'none'));
+
     const researchSections = document.querySelectorAll('.research-content');
-    researchSections.forEach(section => section.style.display = 'none');
-    document.getElementById(researchId).style.display = 'block';
+    researchSections.forEach(section => (section.style.display = 'none'));
+
+    // Show the specific research work
+    const targetWork = document.getElementById(workId);
+    if (targetWork) {
+        targetWork.style.display = 'block';
+    }
+
+    // Ensure the content is visible
+    const workContent = document.getElementById('work-content');
+    const researchContent = document.getElementById('research-content');
+
+    if (workId.startsWith('research')) {
+        workContent.style.display = 'none';
+        researchContent.style.display = 'block';
+    } else {
+        researchContent.style.display = 'none';
+        workContent.style.display = 'block';
+    }
 }
