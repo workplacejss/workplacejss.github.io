@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
     let worksBtn = document.getElementById("works-btn");
+    let researchList = document.getElementById("research-list");
+    let researchBtn = document.getElementById("research-btn");
 
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
