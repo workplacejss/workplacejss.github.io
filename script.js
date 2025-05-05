@@ -75,6 +75,18 @@ function showWork(workId) {
     }
 } 
 
+function showAbout() {
+    const sections = document.querySelectorAll('.work-content');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById('about-section').style.display = 'block';
+}
+
+function showContact() {
+    const sections = document.querySelectorAll('.work-content');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById('contact-section').style.display = 'block';
+}
+
 window.onload = function() {
     document.getElementById("works-btn").style.color = "#0000EE";
     document.getElementById("research-btn").style.color = "#0000EE";
