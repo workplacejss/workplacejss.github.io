@@ -87,6 +87,16 @@ function showContact() {
     document.getElementById('contact-section').style.display = 'block';
 }
 
+function showWork(workId) {
+    const workSections = document.querySelectorAll('.work-content');
+    workSections.forEach(section => (section.style.display = 'none'));
+
+    const targetWork = document.getElementById(workId);
+    if (targetWork) {
+        targetWork.style.display = 'block';
+    }
+}
+
 window.onload = function() {
     document.getElementById("works-btn").style.color = "#0000EE";
     document.getElementById("research-btn").style.color = "#0000EE";
