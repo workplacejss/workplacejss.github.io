@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
     const menuItems = document.querySelectorAll('#menu a, #works-btn');
+    const researchItems = document.querySelectorAll('#research-list a');
+    const researchItems = document.querySelectorAll('#menu a, #research-btn');
 
     function markClicked(item) {
         item.style.color = '#551A8B'; // Make clicked item purple
@@ -30,6 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    // Handle Works research items
+    researchItems.forEach(item => {
+        item.addEventListener('click', function() {
+            markClicked(this);
+        });
+    });
+
 
 function toggleWorks() {
     let worksList = document.getElementById("works-list");
@@ -76,6 +86,29 @@ function showWork(workId) {
     }
 }
 
+function showResearch(workId) {
+    let content = {
+        "works-and-days": "<h2>Works and Days</h2><p>Description of the piece.</p>",
+        "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
+    };
+
+    document.getElementById("research-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
+
+    // Keep all previously clicked works purple
+    document.querySelectorAll("#research-list a").forEach(link => {
+        if (link.dataset.clicked !== "true") {
+            link.style.color = "#0000EE"; // Reset only unclicked ones
+        }
+    });
+
+    // Set clicked work to purple and mark it as clicked
+    let clickedLink = document.querySelector(`[onclick="showResearch('${workId}')"]`);
+    if (clickedLink) {
+        clickedLink.style.color = "#551A8B"; // Stay purple
+        clickedLink.dataset.clicked = "true"; // Mark as clicked
+    }
+}
+
 window.onload = function() {
     document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
 
@@ -103,6 +136,11 @@ window.onload = function() {
 };
 
 function showWork(workId) {
+    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    document.getElementById(workId).style.display = 'block';
+}
+
+function showResearch(workId) {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById(workId).style.display = 'block';
 }
