@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+</head>
+<body>
     <div id="menu">
-        <div id="header-title" href="index.html">[WORKPLACE<br>JSS]</div>
+        <div id="header-title">[WORKPLACE<br>JSS]</div>
         <p id="works-btn" onclick="toggleWorks()">WORKS</p>
-        <div id="works-list">
+        <div id="works-list" style="display: none;">
             <a href="#" onclick="showWork('works-and-days')">Works and Days</a>
             <a href="#" onclick="showWork('claustrum')">Claustrum</a>
             <a href="#" onclick="showWork('eliza')">ELIZA</a>
@@ -22,13 +23,15 @@
             <a href="#" onclick="showWork('grafting')">Grafting</a>
             <a href="#" onclick="showWork('adornations')">Adornations</a>
         </div>
-<p id="research-btn" onclick="toggleResearch()">RESEARCH</p>
-<div id="research-list">
-    <a href="#" onclick="showWork('research-1')">Research Work 1</a>
-    <a href="#" onclick="showWork('research-2')">Research Work 2</a>
-</div>
-<p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
-<p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
+
+        <p id="research-btn" onclick="toggleResearch()">RESEARCH</p>
+        <div id="research-list" style="display: none;">
+            <a href="#" onclick="showWork('research-1')">Research Work 1</a>
+            <a href="#" onclick="showWork('research-2')">Research Work 2</a>
+        </div>
+
+        <p><a href="#" id="about-btn" onclick="showWork('about')">ABOUT</a></p>
+        <p><a href="#" id="contact-btn" onclick="showWork('contact')">CONTACT</a></p>
     </div>
 
     <div id="content">
@@ -230,3 +233,7 @@
 
   gtag('config', 'G-KCX7KC7FP7');
 </script>
+
+ <script src="script.js"></script>
+</body>
+</html>
