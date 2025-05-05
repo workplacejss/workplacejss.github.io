@@ -6,6 +6,9 @@ function toggleWorks() {
     let isOpen = worksList.style.display === "block";
     worksList.style.display = isOpen ? "none" : "block";
     worksBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
+
+    // Ensure "Research" is closed
+    document.getElementById("research-list").style.display = "none";
 }
 
 // Function to toggle the "Research" section
@@ -16,6 +19,9 @@ function toggleResearch() {
     let isOpen = researchList.style.display === "block";
     researchList.style.display = isOpen ? "none" : "block";
     researchBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
+
+    // Ensure "Works" is closed
+    document.getElementById("works-list").style.display = "none";
 }
 
 // Function to show a specific "Work" or "Research" item
@@ -29,6 +35,10 @@ function showWork(workId) {
     if (targetSection) {
         targetSection.style.display = "block";
     }
+
+    // Ensure "ABOUT" and "CONTACT" are hidden
+    document.getElementById("about-section").style.display = "none";
+    document.getElementById("contact-section").style.display = "none";
 }
 
 // Function to show the "ABOUT" section
@@ -36,8 +46,12 @@ function showAbout() {
     // Hide all other content sections
     document.querySelectorAll(".work-content, .research-content").forEach(el => el.style.display = "none");
 
+    // Hide the "Works" and "Research" lists
+    document.getElementById("works-list").style.display = "none";
+    document.getElementById("research-list").style.display = "none";
+
     // Show the "ABOUT" section
-    document.getElementById('about-section').style.display = 'block';
+    document.getElementById("about-section").style.display = "block";
 }
 
 // Function to show the "CONTACT" section
@@ -45,8 +59,12 @@ function showContact() {
     // Hide all other content sections
     document.querySelectorAll(".work-content, .research-content").forEach(el => el.style.display = "none");
 
+    // Hide the "Works" and "Research" lists
+    document.getElementById("works-list").style.display = "none";
+    document.getElementById("research-list").style.display = "none";
+
     // Show the "CONTACT" section
-    document.getElementById('contact-section').style.display = 'block';
+    document.getElementById("contact-section").style.display = "block";
 }
 
 // Initialize after DOM is ready
