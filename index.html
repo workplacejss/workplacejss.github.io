@@ -23,9 +23,9 @@
             <a href="#" onclick="showWork('adornations')">Adornations</a>
         </div>
 <p id="research-btn" onclick="toggleResearch()">RESEARCH</p>
-<div id="research-list" style="display: none;">
-    <a href="#" onclick="showResearch('research-1')">Research Work 1</a>
-    <a href="#" onclick="showResearch('research-2')">Research Work 2</a>
+<div id="research-list">
+    <a href="#" onclick="showWork('research-1')">Research Work 1</a>
+    <a href="#" onclick="showWork('research-2')">Research Work 2</a>
 </div>
 <p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
 <p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
@@ -178,6 +178,34 @@
 </html>
 
   </div>
+
+<div id="content">
+    <div id="work-content">
+        <!-- Existing "Works" content -->
+    </div>
+    <div id="research-content" style="display: none;">
+        <div id="research-1" class="work-content">
+            <div class="work-box">
+                <img src="images/Research1.jpg" alt="Research Work 1" class="work-image">
+                <p>
+                    „Research Work 1”<br>
+                    Description of the research work.<br>
+                    Materials used, year, dimensions.
+                </p>
+            </div>
+        </div>
+        <div id="research-2" class="work-content" style="display: none;">
+            <div class="work-box">
+                <img src="images/Research2.jpg" alt="Research Work 2" class="work-image">
+                <p>
+                    „Research Work 2”<br>
+                    Description of the research work.<br>
+                    Materials used, year, dimensions.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="about-section" class="work-content" style="display: none;">
     <div class="work-box">
