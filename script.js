@@ -114,3 +114,37 @@ function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
 }
+
+function toggleResearch() {
+    let researchList = document.getElementById("research-list");
+    let researchBtn = document.getElementById("research-btn");
+
+    if (researchList.style.display === "block") {
+        researchList.style.display = "none";
+        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
+    } else {
+        researchList.style.display = "block";
+        researchBtn.style.color = "#551A8B"; // Change to purple when open
+    }
+}
+
+function showResearch(researchId) {
+    let content = {
+        "research-1": "<h2>Research Topic 1</h2><p>Description of Research Topic 1</p>",
+        "research-2": "<h2>Research Topic 2</h2><p>Description of Research Topic 2</p>",
+        "research-3": "<h2>Research Topic 3</h2><p>Description of Research Topic 3</p>"
+    };
+
+    document.getElementById("research-content").innerHTML = content[researchId] || "<p>Select a research topic to view details.</p>";
+
+    // Reset colors for research list links
+    document.querySelectorAll("#research-list a").forEach(link => {
+        link.style.color = "#0000EE"; // Reset to blue
+    });
+
+    // Highlight the clicked link
+    let clickedLink = document.querySelector(`[onclick="showResearch('${researchId}')"]`);
+    if (clickedLink) {
+        clickedLink.style.color = "#551A8B"; // Change to purple
+    }
+}
