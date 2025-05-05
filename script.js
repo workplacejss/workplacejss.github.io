@@ -18,38 +18,34 @@ function toggleResearch() {
     researchBtn.style.color = isOpen ? "#0000EE" : "#551A8B";
 }
 
-// Function to show the selected work or research
+// Function to show a specific "Work" or "Research" item
 function showWork(workId) {
-    const workContent = document.getElementById("work-content");
-    const researchContent = document.getElementById("research-content");
-
-    // Hide all contents first
+    // Hide all content sections
     document.querySelectorAll(".work-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".research-content").forEach(el => el.style.display = "none");
 
-    // Decide where to show content
-    if (workId.startsWith("research")) {
-        researchContent.style.display = "block";
-        workContent.style.display = "none";
-        document.getElementById(workId).style.display = "block";
-    } else {
-        workContent.style.display = "block";
-        researchContent.style.display = "none";
-        document.getElementById(workId).style.display = "block";
+    // Show the specific section
+    const targetSection = document.getElementById(workId);
+    if (targetSection) {
+        targetSection.style.display = "block";
     }
 }
 
 // Function to show the "ABOUT" section
 function showAbout() {
-    const sections = document.querySelectorAll('.work-content');
-    sections.forEach(section => section.style.display = 'none');
+    // Hide all other content sections
+    document.querySelectorAll(".work-content, .research-content").forEach(el => el.style.display = "none");
+
+    // Show the "ABOUT" section
     document.getElementById('about-section').style.display = 'block';
 }
 
 // Function to show the "CONTACT" section
 function showContact() {
-    const sections = document.querySelectorAll('.work-content');
-    sections.forEach(section => section.style.display = 'none');
+    // Hide all other content sections
+    document.querySelectorAll(".work-content, .research-content").forEach(el => el.style.display = "none");
+
+    // Show the "CONTACT" section
     document.getElementById('contact-section').style.display = 'block';
 }
 
