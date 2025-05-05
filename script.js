@@ -1,39 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
     const worksItems = document.querySelectorAll('#works-list a');
-    const researchItems = document.querySelectorAll('#research-list a');
     const menuItems = document.querySelectorAll('#menu a, #works-btn');
 
     function markClicked(item) {
-        item.style.color = '#551A8B';
+        item.style.color = '#551A8B'; // Make clicked item purple
         item.classList.add('clicked');
     }
 
     function resetUnclicked() {
         menuItems.forEach(link => {
             if (!link.classList.contains('clicked')) {
-                link.style.color = '#0000EE';
+                link.style.color = '#0000EE'; // Reset unclicked items to blue
             }
         });
     }
 
+    // Handle Works menu items
     worksItems.forEach(item => {
         item.addEventListener('click', function() {
             markClicked(this);
-            resetUnclicked();
         });
     });
 
-    researchItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-            resetUnclicked();
-        });
-    });
-
+    // Handle About & Contact menu items
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             markClicked(this);
-            resetUnclicked();
+            resetUnclicked(); // Reset only unclicked items
         });
     });
 });
@@ -44,15 +37,15 @@ function toggleWorks() {
 
     if (worksList.style.display === "block") {
         worksList.style.display = "none";
-        worksBtn.style.color = "#0000EE";
+        worksBtn.style.color = "#0000EE"; // Reset to blue when closed
     } else {
         worksList.style.display = "block";
-        worksBtn.style.color = "#551A8B";
+        worksBtn.style.color = "#551A8B"; // Keep purple when open
     }
 }
 
 function showWork(workId) {
-    const content = {
+    let content = {
         "works-and-days": "<h2>Works and Days</h2><p>Description of the piece.</p>",
         "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
         "eliza": "<h2>ELIZA</h2><p>Description of the piece.</p>",
@@ -66,74 +59,58 @@ function showWork(workId) {
 
     document.getElementById("work-content").innerHTML = content[workId] || "<p>Select a work to view details.</p>";
 
+    // Keep all previously clicked works purple
     document.querySelectorAll("#works-list a").forEach(link => {
-        if (!link.classList.contains('clicked')) {
-            link.style.color = "#0000EE";
+        if (link.dataset.clicked !== "true") {
+            link.style.color = "#0000EE"; // Reset only unclicked ones
         }
     });
 
+    // Set clicked work to purple and mark it as clicked
     let clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
     if (clickedLink) {
-        clickedLink.style.color = "#551A8B";
-        clickedLink.classList.add('clicked');
-    }
-}
-
-function showResearch(researchId) {
-    const content = {
-        "research-1": "<h2>Research Topic 1</h2><p>Description of the research.</p>",
-        "research-2": "<h2>Research Topic 2</h2><p>Description of the research.</p>",
-        "research-3": "<h2>Research Topic 3</h2><p>Description of the research.</p>"
-    };
-
-    document.getElementById("work-content").innerHTML = content[researchId] || "<p>Select a research topic to view details.</p>";
-
-    document.querySelectorAll("#research-list a").forEach(link => {
-        if (!link.classList.contains('clicked')) {
-            link.style.color = "#0000EE";
-        }
-    });
-
-    let clickedLink = document.querySelector(`[onclick="showResearch('${researchId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B";
-        clickedLink.classList.add('clicked');
+        clickedLink.style.color = "#551A8B"; // Stay purple
+        clickedLink.dataset.clicked = "true"; // Mark as clicked
     }
 }
 
 window.onload = function() {
-    document.getElementById("works-btn").style.color = "#0000EE";
+    document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
 
-    let menuItems = document.querySelectorAll("#menu a");
+    // Reset all menu items (CV, About, Contact)
+    let menuItems = document.querySelectorAll("#menu a"); 
     menuItems.forEach(item => {
-        item.style.color = "#0000EE";
+        item.style.color = "#0000EE"; // Reset to blue
     });
 
+    // Set header color to black
     document.getElementById("header-title").style.color = "#000000";
 
+    // Add event listeners to menu items
     menuItems.forEach(item => {
         item.addEventListener("click", function() {
             menuItems.forEach(link => {
                 if (!link.classList.contains('clicked')) {
-                    link.style.color = "#0000EE";
+                    link.style.color = "#0000EE"; // Reset unclicked items to blue
                 }
             });
-            this.style.color = "#551A8B";
+            this.style.color = "#551A8B"; // Make clicked one purple
             this.classList.add('clicked');
         });
     });
 };
 
+function showWork(workId) {
+    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    document.getElementById(workId).style.display = 'block';
+}
+
 function showAbout() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('about-section').style.display = 'block';
-    document.querySelectorAll('#menu a').forEach(link => link.classList.remove('clicked'));
-    document.querySelector('#menu a[href="#about-section"]').classList.add('clicked');
 }
 
 function showContact() {
     document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
     document.getElementById('contact-section').style.display = 'block';
-    document.querySelectorAll('#menu a').forEach(link => link.classList.remove('clicked'));
-    document.querySelector('#menu a[href="#contact-section"]').classList.add('clicked');
 }
