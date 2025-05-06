@@ -52,47 +52,6 @@ function toggleWorks() {
     }
 }
 
-function showWork(workId) {
-    let content = {
-        "works-and-days": "<h2>Works and Days</h2><p>Description of the piece.</p>",
-        "claustrum": "<h2>Claustrum</h2><p>Description of the piece.</p>",
-        "eliza": "<h2>ELIZA</h2><p>Description of the piece.</p>",
-        "body-in-flux": "<h2>Body in Flux</h2><p>Description of the piece.</p>",
-        "nepenthe": "<h2>Nepenthe [WIP]</h2><p>Description of the piece.</p>",
-        "stasis": "<h2>Stasis</h2><p>Description of the piece.</p>",
-        "effigy-1": "<h2>Effigy 1</h2><p>Description of the piece.</p>",
-        "grafting": "<h2>Grafting</h2><p>Description of the piece.</p>",
-        "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>" 
-    };
-
-    // Hide all other content (works and research sections)
-    document.querySelectorAll('.work-content, .research-content').forEach(div => div.style.display = 'none');
-
-    // Explicitly hide the research box
-    const researchBox = document.getElementById("research-box");
-    if (researchBox) {
-        researchBox.style.display = "none";
-        researchBox.style.zIndex = "1"; // Push research box to the back
-    }
-
-    // Populate the work content box with the selected work content
-    const workBox = document.getElementById("work-content");
-    workBox.innerHTML = content[workId] || "<p>Select a work to view details.</p>";
-    workBox.style.display = "block"; // Show the box
-    workBox.style.zIndex = "10"; // Bring work box to the front
-
-    // Reset colors for works list links
-    document.querySelectorAll("#works-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
-    });
-
-    // Highlight the clicked link
-    const clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Change to purple
-    }
-}
-
 window.onload = function() {
     document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
 
@@ -120,17 +79,52 @@ window.onload = function() {
 };
 
 function showWork(workId) {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    // Hide ALL content divs - both work and research
+    document.querySelectorAll('.work-content, .research-content').forEach(div => {
+        div.style.display = 'none';
+    });
+    
+    // Also explicitly hide the research-box
+    document.getElementById('research-box').style.display = 'none';
+    
+    // Show the requested work
     document.getElementById(workId).style.display = 'block';
+    
+    // Update link colors in works list
+    document.querySelectorAll("#works-list a").forEach(link => {
+        link.style.color = "#0000EE"; // Reset to blue
+    });
+    
+    // Highlight the clicked link
+    const clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
+    if (clickedLink) {
+        clickedLink.style.color = "#551A8B"; // Change to purple
+    }
 }
 
 function showAbout() {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    // Hide ALL content divs - both work and research
+    document.querySelectorAll('.work-content, .research-content').forEach(div => {
+        div.style.display = 'none';
+    });
+    
+    // Also explicitly hide the research-box
+    document.getElementById('research-box').style.display = 'none';
+    
+    // Show about section
     document.getElementById('about-section').style.display = 'block';
 }
 
 function showContact() {
-    document.querySelectorAll('.work-content').forEach(div => div.style.display = 'none');
+    // Hide ALL content divs - both work and research
+    document.querySelectorAll('.work-content, .research-content').forEach(div => {
+        div.style.display = 'none';
+    });
+    
+    // Also explicitly hide the research-box
+    document.getElementById('research-box').style.display = 'none';
+    
+    // Show contact section
     document.getElementById('contact-section').style.display = 'block';
 }
 
@@ -162,21 +156,15 @@ function showResearch(researchId) {
         "research-3": "<h2>Research Topic 3</h2><p>Detailed content for Research Topic 3.</p>"
     };
 
-    // Hide all other content (works and research sections)
-    document.querySelectorAll('.work-content, .research-content').forEach(div => div.style.display = 'none');
+    // Hide ALL content divs - both work and research 
+    document.querySelectorAll('.work-content, .research-content').forEach(div => {
+        div.style.display = 'none';
+    });
 
-    // Explicitly hide the work box
-    const workBox = document.getElementById("work-content");
-    if (workBox) {
-        workBox.style.display = "none";
-        workBox.style.zIndex = "1"; // Push work box to the back
-    }
-
-    // Populate the research box with the selected research content
+    // Populate and show the research box
     const researchBox = document.getElementById("research-box");
     researchBox.innerHTML = content[researchId] || "<p>Select a research topic to view details.</p>";
-    researchBox.style.display = "block"; // Show the box
-    researchBox.style.zIndex = "10"; // Bring research box to the front
+    researchBox.style.display = "block";
 
     // Reset colors for research list links
     document.querySelectorAll("#research-list a").forEach(link => {
