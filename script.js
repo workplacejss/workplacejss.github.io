@@ -62,7 +62,7 @@ function showWork(workId) {
         "stasis": "<h2>Stasis</h2><p>Description of the piece.</p>",
         "effigy-1": "<h2>Effigy 1</h2><p>Description of the piece.</p>",
         "grafting": "<h2>Grafting</h2><p>Description of the piece.</p>",
-        "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>"
+        "adornations": "<h2>Adornations</h2><p>Description of the piece.</p>" 
     };
 
     // Hide all other content (works and research sections)
