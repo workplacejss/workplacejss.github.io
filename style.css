@@ -4,7 +4,7 @@ body {
 }
 
 #menu {
-    width: 225px; 
+    width: 225px;
     padding: 20px;
 }
 
@@ -117,7 +117,7 @@ h1 {
 
 .research-content {
     display: none;
-    position: ;
+    position: absolute;
     top: 100px;
     left: 400px;
     border: 1px solid black;
@@ -125,36 +125,10 @@ h1 {
     background-color: white;
     width: 600px;
     margin-bottom: 150px;
+    z-index: 5; /* Set default z-index */
 }
 
-#research-box {
-    position: absolute;
-    top: 100px; /* Aligns the top with the works box */
-    left: 400px; /* Match the works box's horizontal position */
-    border: 1px solid black;
-    padding: 25px;
-    background-color: white;
-    width: 600px; /* Ensure the width matches the works box */
-    margin-bottom: 150px;
-    display: none; /* Keep it hidden initially */
+/* Add these new styles to ensure proper stacking */
+#about-section, #contact-section {
+    z-index: 5; /* Match z-index of other content */
 }
-}
-
-#research-list a {
-    display: block;
-    margin-bottom: 5px;
-    color: #0000EE;
-    text-decoration: underline;
-}
-
-#research-list a.clicked {
-    color: #551A8B !important;
-}
-
-
-
-
-
-
-
-
