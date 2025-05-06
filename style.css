@@ -96,8 +96,8 @@ h1 {
 #research-list {
     display: none; /* Hidden by default */
     position: absolute;
-    left: 145px; /* Align with menu */
-    top: 200px; /* Position below WORKS */
+    left: 145px; /* Moves it to the right of the menu */
+    top: 100px; /* Aligns it properly */
     background-color: white;
     border: 1px solid black;
     padding: 25px;
