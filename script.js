@@ -1,179 +1,212 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const worksItems = document.querySelectorAll('#works-list a');
-    const menuItems = document.querySelectorAll('#menu a, #works-btn');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKPLACE JSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    function markClicked(item) { 
-        item.style.color = '#551A8B'; // Make clicked item purple
-        item.classList.add('clicked');
-    }
+    <div id="menu">
+        <div id="header-title" href="index.html">[WORKPLACE<br>JSS]</div>
+        <p id="works-btn" onclick="toggleWorks()">WORKS</p>
+        <div id="works-list">
+            <a href="#" onclick="showWork('works-and-days')">Works and Days</a>
+            <a href="#" onclick="showWork('claustrum')">Claustrum</a>
+            <a href="#" onclick="showWork('eliza')">ELIZA</a>
+            <a href="#" onclick="showWork('body-in-flux')">Body in Flux</a>
+            <a href="#" onclick="showWork('stasis')">Stasis</a>
+            <a href="#" onclick="showWork('effigy-1')">Effigy 1</a>
+            <a href="#" onclick="showWork('grafting')">Grafting</a>
+            <a href="#" onclick="showWork('adornations')">Adornations</a>
+        </div>
+        <p id="research-btn" onclick="toggleResearch()">RESEARCH</p> <!-- Added Button -->
+    <div id="research-list" style="display:none;">
+        <a href="#" onclick="showResearch('GMO-Tomato')">GMO Tomato</a>
+        <a href="#" onclick="showResearch('research-nepenthe')">Nepenthe</a>
+    </div>
+    <p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
+    <p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
+</div>
+    </div>
 
-    function resetUnclicked() {
-        menuItems.forEach(link => {
-            if (!link.classList.contains('clicked')) {
-                link.style.color = '#0000EE'; // Reset unclicked items to blue
-            }
-        });
-    }
-
-    // Handle Works menu items
-    worksItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-        });
-    });
-
-    // Handle About & Contact menu items
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-            resetUnclicked(); // Reset only unclicked items
-        });
-    });
-});
-
-function toggleWorks() {
-    let worksList = document.getElementById("works-list");
-    let worksBtn = document.getElementById("works-btn");
-    let researchList = document.getElementById("research-list"); // Reference to the research list
-
-    // Hide the research list if it's open
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-        document.getElementById("research-btn").style.color = "#0000EE"; // Reset research button to blue
-    }
-
-    // Toggle the works list
-    if (worksList.style.display === "block") {
-        worksList.style.display = "none";
-        worksBtn.style.color = "#0000EE"; // Reset to blue when closed
-    } else {
-        worksList.style.display = "block";
-        worksBtn.style.color = "#551A8B"; // Keep purple when open
-    }
-}
-
-window.onload = function() {
-    document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
-
-    // Reset all menu items (CV, About, Contact)
-    let menuItems = document.querySelectorAll("#menu a"); 
-    menuItems.forEach(item => {
-        item.style.color = "#0000EE"; // Reset to blue
-    });
-
-    // Set header color to black
-    document.getElementById("header-title").style.color = "#000000";
-
-    // Add event listeners to menu items
-    menuItems.forEach(item => {
-        item.addEventListener("click", function() {
-            menuItems.forEach(link => {
-                if (!link.classList.contains('clicked')) {
-                    link.style.color = "#0000EE"; // Reset unclicked items to blue
-                }
-            });
-            this.style.color = "#551A8B"; // Make clicked one purple
-            this.classList.add('clicked');
-        });
-    });
-};
-
-function showWork(workId) {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
+    <div id="content">
+        <div id="work-content">
+            <div id="works-and-days" class="work-content">
+    <div class="work-box">
+           <img src="images/Works and Days.jpg" alt="Works and Days" class="work-image">
+        <p>
+    „Works and Days”<br>
+    Interactive Installation<br>
+    Speakers, wire, single board computer, field recordings, ultrasonic sensors<br>
+    2024<br>
+    200x180x60cm
+</p>
+        <p>Field recordings captured across Italy and Greece are diffused through clusters of mini speakers creating three “Swarms.” Various cicada audios positioned around a central speaker that echoes city sounds: the rumble of construction, the murmur of distant voices, the steady thrum of traffic. As visitors move through the space, PIR sensors track movement, and a Raspberry Pi microprocessor running code subtly amplifies the closest “Swarm,” while quieting others. This interplay invites the viewer into a sensation of being both observed and absorbed by the sounds of industry and nature around them. Conceptualized while listening to meditative works by John Cage and Alice Coltrane. This installation draws one into a meditative state, encouraging one to bask in the sonic layers of a living code of calls, hums, and unseen rhythms that make up the fabric of our daily lives.</p>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1061850691?h=269cc33c1c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Works and Days Video"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+</div>
+           <div id="claustrum" class="work-content">
+    <div class="work-box">
+        <img src="images/Claustrum (Image).jpg" alt="Claustrum" class="work-image">
+        <p>
+            „Claustrum”<br>
+            Interactive Installation<br>
+           PIR sensor, wire, single board computer, felted wool blanket<br>
+            2025<br>
+            70x70x180cm
+        </p>
+        <p>Shrouded beneath a layer of felted wool, an unseen being stirs, its movements manipulating the fabric’s surface in a rhythmic struggle. Powered by a single board computer running code and activated by a PIR sensor, the sculpture reacts to the presence of the observer. Claustrophilia delves into the psychological tension between comfort and confined space. While the being inside may be content, this kinetic installation invites viewers to confront this perspective as an onlooker, provoking an instinct to either intervene or retreat. “Claustrum” prompts reflection on the boundaries between the animate and inanimate, comfort and disquiet, intimacy and alienation.</p>
+          <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1062003459?h=4e937da025&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Claustrum"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+</div>
+            <div id="eliza" class="work-content">
+    <div class="work-box">
+        <img src="images/ELIZA (Image).jpg" alt="eliza" class="work-image">
+        <p>
+            „ELIZA”<br>
+            Interactive Installation<br>
+           Fiberglass, wire, single board computer, infrared sensors, aluminium, rubber, speakers<br>
+            2024<br>
+            140x130x20cm
+        </p>
+        <p>ELIZA explores the building blocks of human language in a form that invites viewers to grapple with meaning—or its absence. The installation utilizes a Raspberry Pi microcontroller running code, an independent power source, wires, speakers, and infrared sensors that detect viewer proximity, all housed in a molded fiberglass shell. As visitors approach the vessel, the sensors measure the distance of the viewer and trigger audio recordings measured out to specific intervals—nasal hums, guttural clicks, and soft approximates—recited by classical musician William Socolof who was commissioned for this work.This fragmented vocalization evokes a digital theremin of human sound—precise but devoid of syntax or semantics. These phonemes are divorced from the context and grammar that typically give them purpose. Drawing inspiration from Peter Ladefoged’s phonetic studies and the “ELIZA effect” coined by Joseph Weizenbaum, the piece challenges the viewer’s impulse to interpret, to imbue sounds with meaning even when none is given. In this void, ELIZA  questions our innate desire to find coherence, especially in an era of AI and deep learning where the line between human and machine language blurs. ELIZA  becomes an introspective experience, prompting viewers to confront the elemental DNA of their language—disembodied, raw, and eerily familiar.</p>
+        <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1062020896?h=e299f43cf8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ELIZA (Video)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>        </div>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+</div>
+                <div id="body-in-flux" class="work-content">
+    <div class="work-box">
+        <img src="images/Body in Flux (Image).jpg" alt="Body in Flux" class="work-image">
+        <p>
+            „Body in Flux”<br>
+            Kinetic Sculpture<br>
+            Wood, PVC, motor, latex, oil<br>
+            2024<br>
+            45x45x90cm
+        </p>
+        <p>Body in Flux explores the relationship between the human body and societal structures that shape it. The sculpture runs via a motor powered by an external source embedded under the seat of the chair which circulates the liquid in the veins throughout the piece. The chair has been infiltrated by an external system of veins, skin, pumps and motors. The parasitic force not only embraces but embodies the form—not an idealized form, but a necessary conduit for its existence. These elements give rise to a new entity that blurs the boundaries between the innate and the constructed. It mirrors the constant flux of identity—changing, evolving, and adapting in response to external stimuli. As the chair assumes the role of both form and metaphor, it becomes an unsettling companion, challenging the viewer to confront their own self-conscious identity shaped by the cycle of perception, reaction, and change.</p>
+    </p>
+        Exhibited at the Pop Up Arts Festival, Copenhagen, Denmark, 2024.  </p>
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1062051754?h=6a978d5d10&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Body in Flux"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>        </div>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+    </div>
     
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
+      <div id="stasis" class="work-content">
+    <div class="work-box">
+        <img src="images/stasis.jpeg" alt="Stasis" class="work-image">
+        <p>
+            „Stasis” <br>
+            Wall Relief Sculpture <br>
+            Latex, ceramic, LEDs, acrylic paint <br>
+            2023 <br>
+            50x45x6cm
+        </p>
+        <p>Stasis delves into the defensive and resilient nature of the human body and mind. Much like an oyster mineralizes a grain of sand to craft a pearl, the body, too, deploys its own transformative processes as a means of protection. The focal point is the intruding object, cocooned within bubbles of latex and light to emphasize its incongruity against the cushioning of its surroundings. Pressing towards the intrusion is another object emanating with light from LED’s embedded under its latex form, highlighting the intricate push and pull of energies—a visceral internal struggle within the body.<p></p>
+           </p>
+        Exhibited at the Pop Up Arts Festival, Copenhagen, Denmark, 2024.  </p>
+    </div>
+    </div>
     
-    // Show the requested work
-    document.getElementById(workId).style.display = 'block';
+      <div id="effigy-1" class="work-content">
+    <div class="work-box">
+        <img src="images/Effigy.jpg" alt="Effigy 1" class="work-image">
+        <p>
+            „Effigy 1” <br>
+            Sculpture <br>
+            Beeswax, slate, iron, scent compounds <br>
+            2023 <br>
+            20x14x6cm
+        </p>
+        <p>Effigy 1 weaves a narrative drawing upon ancient ritual, the nature of belief, and the power of intention. The effigy in this piece was cast from a mold of an original 3D-printed form, into which scented beeswax was poured. The wax was imbued with a scent mixture of hot metal, ozone, and musk to immerse the viewer. The result, an unfamiliar form, is nailed to the incised slate. It is noticeably organic, an ambiguity which can be viewed as its own entity, or, an empty vessel onto which viewers can cast their own subjects. Historical resonance with effigies prompts reflection on intent—did the creator seek to harm or heal its subject, or, does the viewer?</p>
+        </div>
+    </div>
+
+     <div id="grafting" class="work-content">
+    <div class="work-box">
+        <img src="images/Grafting.jpg" alt="Grafting" class="work-image">
+        <p>
+            „Grafting” <br>
+            Sculpture <br>
+            Latex, steel wire <br>
+            2023 <br>
+            40x35x30cm
+        </p>
+        <p>Grafting delves into the dynamics of protection and enhancement. A self-administered protective layer in the form of corsetry, drawing parallels to Victorian corsets that constrained and elevated both the physical form and social standing. This work prompts contemplation on body armor and protection of the self. The latex skin, bound to the wire scaffolding, signals assimilation of protective elements into our being.</p>
+        </div>
+    </div>
+
+      <div id="adornations" class="work-content">
+    <div class="work-box">
+
+   <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1062061619?h=bff1d93c9f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ADORNATIONS VIDEO"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        <br>
+            „Adornations” <br>
+            Video <br>
+            Digital video, color, sound <br>
+            2023 <br>
+            01:18 Min. 
+
+        </p>
+        <p>This body sculpture and video performance is a study in semiotics. We, in our quest for self-expression, adorn ourselves in intricate ways, offering a reflection of our inner realms through intentional outward manifestations—an intimate dance of reflection and action. Delving into the semiotics of embellishment, employing piercing techniques using hundreds of handmade rings that evoke parallels to chainmail. The intersection of adornment and protection prompts contemplation on the act of ornamenting the body, where personal expression and self-preservation are often indiscernible. The video is scored with original music. </p>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+</div>
+
+<div id="research-box" class="research-content"></div>
+<div id="GMO-Tomato" class="research-content" style="display: none;">
+    <img src="images/tomato.jpg" class="work-image">
+    <p>In 2007, scientists engineered a tomato to produce geraniol during the fruit's ripening stage, a rose-like compound found in flowers and often used in perfumery. An untrained panel then tasted the transgenic fruit and preferred them over controls. This work examines humanity’s interventions into nature and the modifications we explore and endure.<br> <br> As we reshape the planet to meet the demands of overpopulation, climate instability, and resource scarcity, even our sensory realities are changing. What does it mean to replace ancestral scents with synthetic ones? What kind of Earth are we building when its biology becomes authored?<br> <br>For this work I crafted a scent profile of the transgenic fruit using traditional perfumery techniques and aroma compounds. This scent reimagines the tomato not as it was, but as it is becoming, a new species constructed through biotech. The final work will be presented as a 3D-printed diffuser (the blender rendering is shown here)  containing the scent compounds for the viewer to smell: a vine tomato accord with geraniol to mimic the profile of the GMO tomato. The result is a speculative olfactory artifact of our increasingly transgenic future.
+        </p>
+</div>
+<div id="research-nepenthe" class="research-content" style="display: none;"> 
+    <img src="images/Nepenthe.jpg" alt="Nepenthe" class="work-image">
+    <p>
+       
+        „Nepenthe” [WIP] <br>
+        Digital Maquette <br>
+        2025 <br> 
+         
+    </p>
+    <p>Nepenthe—a genus of carnivorous plants whose passive yet inescapable traps I parallel to social media’s algorithmic pull. <br> <br> A translucent sculptural pitcher plant houses a screen looping YouTube Shorts curated solely by U.S. location-based recommendations, highlighting how engagement-driven algorithms shape ideology and identity. <br> <br> Engagement-optimized feedback loops amplify divisive content without intent, commodifying attention and emotional response. Nepenthe doesn’t advocate censorship but reveals the biases embedded in supposedly neutral systems. By immersing viewers in algorithmically generated content, the piece exposes how media consumption both defines and consumes us. Through participation, viewers complete the work—engaging with a system that reflects and critiques digital consumption. Nepenthe invites us to confront the unseen forces shaping our digital reality, implicating both algorithm and user in perpetual engagement. <br><br> Data Collection: A YouTube Shorts account will be created using a VPN and private browser, isolating geographic-based recommendations. Screen recordings will analyze content trends and ideological bias. <br><br> Physical Installation: A transparent sculptural pitcher plant, vacuum-molded from polycarbonate or recycled plastics, large enough for a viewer to peer inside. <br> <br>Embedded Technology: A looping screen with speakers; internal mechanics (Raspberry Pi, wiring) submerged in mineral oil, mimicking digestive fluids and reinforcing passive entrapment. </p>
+</div>
+
+    <!-- New Adjacent Box -->
+    <div id="research-box" class="research-content" style="display: none;"></div>
+</div>
     
-    // Update link colors in works list
-    document.querySelectorAll("#works-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
-    });
-    
-    // Highlight the clicked link
-    const clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Change to purple
-    }
-}
+    <script src="script.js"></script>
 
-function showAbout() {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-    
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
-    
-    // Show about section
-    document.getElementById('about-section').style.display = 'block';
-}
+</body>
+</html>
 
-function showContact() {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-    
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
-    
-    // Show contact section
-    document.getElementById('contact-section').style.display = 'block';
-}
+<div id="about-section" class="work-content" style="display: none;">
+    <div class="work-box">
+        <p>  JSS is a queer, transdiciplinary artist from New York City whose practice spans sculpture, installation, and sound. They explore the intersections between media, politics, queer culture, ecology, and their impacts on the body and mind. Currently based in Köln, Germany, JSS engages with a diverse range of materials and mediums to examine the forces that shape human identity and bodily experience within societal frameworks. <br> <br> JSS' work invites contemplation on the fluidity of identity and the influence of power structures on the body in contemporary life. Their sculptural and installation-based pieces are often immersive, encouraging viewers to engage with the physical and conceptual space of the work. Whether through the tactility of their sculptures or the atmospheric presence of their installations, JSS creates experiences that illuminate the internal structures of the world around us and highlight the complex negotiations of self within larger cultural contexts. JSS' installations serve as critical reflections on the entanglement of individual and collective identities, inviting audiences to question and reimagine their own positions within the societal landscape.
+  </p>
+    </div>
+</div>
 
-function toggleResearch() {
-    let researchList = document.getElementById("research-list");
-    let researchBtn = document.getElementById("research-btn");
-    let worksList = document.getElementById("works-list"); // Reference to the works list
+<div id="contact-section" class="work-content" style="display: none;">
+    <div class="work-box">
+        <p>workplacejss [at] gmail [dot] com</p>
+    </div>
+</div>
 
-    // Hide the works list if it's open
-    if (worksList.style.display === "block") {
-        worksList.style.display = "none";
-        document.getElementById("works-btn").style.color = "#0000EE"; // Reset works button to blue
-    }
 
-    // Toggle the research list
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
-    } else {
-        researchList.style.display = "block";
-        researchBtn.style.color = "#551A8B"; // Change to purple when open
-    }
-}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCX7KC7FP7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-function showResearch(researchId) {
-    const content = {
-        "research-1": "<h2>Research Topic 1</h2><p>Detailed content for Research Topic 1.</p>",
-        "research-2": "<h2>Research Topic 2</h2><p>Detailed content for Research Topic 2.</p>",
-        "research-3": "<h2>Research Topic 3</h2><p>Detailed content for Research Topic 3.</p>"
-    };
-
-    // Hide ALL content divs - both work and research 
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    // Populate and show the research box
-    const researchBox = document.getElementById("research-box");
-    researchBox.innerHTML = content[researchId] || "<p>Select a research topic to view details.</p>";
-    researchBox.style.display = "block";
-
-    // Reset colors for research list links
-    document.querySelectorAll("#research-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
-    });
-
-    // Highlight the clicked link
-    const clickedLink = document.querySelector(`[onclick="showResearch('${researchId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Change to purple
-    }
-}
+  gtag('config', 'G-KCX7KC7FP7');
+</script>
