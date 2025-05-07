@@ -16,7 +16,6 @@
             <a href="#" onclick="showWork('claustrum')">Claustrum</a>
             <a href="#" onclick="showWork('eliza')">ELIZA</a>
             <a href="#" onclick="showWork('body-in-flux')">Body in Flux</a>
-            <a href="#" onclick="showWork('nepenthe')">Nepenthe [WIP]</a>
             <a href="#" onclick="showWork('stasis')">Stasis</a>
             <a href="#" onclick="showWork('effigy-1')">Effigy 1</a>
             <a href="#" onclick="showWork('grafting')">Grafting</a>
@@ -24,9 +23,8 @@
         </div>
         <p id="research-btn" onclick="toggleResearch()">RESEARCH</p> <!-- Added Button -->
     <div id="research-list" style="display:none;">
-        <a href="#" onclick="showResearch('research-1')">Research Topic 1</a>
-        <a href="#" onclick="showResearch('research-2')">Research Topic 2</a>
-        <a href="#" onclick="showResearch('research-3')">Research Topic 3</a>
+        <a href="#" onclick="showResearch('GMO-Tomato')">GMO Tomato</a>
+        <a href="#" onclick="showResearch('research-nepenthe')">Nepenthe</a>
     </div>
     <p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
     <p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
@@ -98,18 +96,6 @@
         </div>
         <script src="https://player.vimeo.com/api/player.js"></script>
     </div>
-</div>
-      <div id="nepenthe" class="work-content">
-    <div class="work-box">
-        <img src="images/Nepenthe.jpg" alt="Nepenthe" class="work-image">
-        <p>
-            „Nepenthe” <br>
-            Digital Maquette <br>
-            2025 <br> <br>
-            [WORK IN PROGRESS] <br> 
-        </p>
-        <p>Nepenthe—a genus of carnivorous plants whose passive yet inescapable traps I parallel to social media’s algorithmic pull. A translucent sculptural pitcher plant houses a screen looping YouTube Shorts curated solely by U.S. location-based recommendations, highlighting how engagement-driven algorithms shape ideology and identity. <br> <br> Engagement-optimized feedback loops amplify divisive content without intent, commodifying attention and emotional response. Nepenthe doesn’t advocate censorship but reveals the biases embedded in supposedly neutral systems. By immersing viewers in algorithmically generated content, the piece exposes how media consumption both defines and consumes us. Through participation, viewers complete the work—engaging with a system that reflects and critiques digital consumption. Nepenthe invites us to confront the unseen forces shaping our digital reality, implicating both algorithm and user in perpetual engagement. <br> <br> Data Collection: A YouTube Shorts account will be created using a VPN and private browser, isolating geographic-based recommendations. Screen recordings will analyze content trends and ideological bias. <br> <br>  Physical Installation: A transparent sculptural pitcher plant, vacuum-molded from polycarbonate or recycled plastics, large enough for a viewer to peer inside. <br> <br> Embedded Technology: A looping screen with speakers; internal mechanics (Raspberry Pi, wiring) submerged in mineral oil, mimicking digestive fluids and reinforcing passive entrapment.
-        </div>
     </div>
     
       <div id="stasis" class="work-content">
@@ -175,19 +161,22 @@
 </div>
 
 <div id="research-box" class="research-content"></div>
-    <!-- Existing Research Topics -->
-    <div id="research-1" class="research-content" style="display: none;">
-        <h2>Research Topic 1</h2>
-        <p>Description of Research Topic 1</p>
-    </div>
-    <div id="research-2" class="research-content" style="display: none;">
-        <h2>Research Topic 2</h2>
-        <p>Description of Research Topic 2</p>
-    </div>
-    <div id="research-3" class="research-content" style="display: none;">
-        <h2>Research Topic 3</h2>
-        <p>Description of Research Topic 3</p>
-    </div>
+<div id="GMO-Tomato" class="research-content" style="display: none;">
+    <img src="images/tomato.jpg" class="work-image">
+    <p>In 2007, scientists engineered a tomato to produce geraniol during the fruit's ripening stage, a rose-like compound found in flowers and often used in perfumery. An untrained panel then tasted the transgenic fruit and preferred them over controls. This work examines humanity’s interventions into nature and the modifications we explore and endure.<br> <br> As we reshape the planet to meet the demands of overpopulation, climate instability, and resource scarcity, even our sensory realities are changing. What does it mean to replace ancestral scents with synthetic ones? What kind of Earth are we building when its biology becomes authored?<br> <br>For this work I crafted a scent profile of the transgenic fruit using traditional perfumery techniques and aroma compounds. This scent reimagines the tomato not as it was, but as it is becoming, a new species constructed through biotech. The final work will be presented as a 3D-printed diffuser (the blender rendering is shown here)  containing the scent compounds for the viewer to smell: a vine tomato accord with geraniol to mimic the profile of the GMO tomato. The result is a speculative olfactory artifact of our increasingly transgenic future.
+        </p>
+</div>
+<div id="research-nepenthe" class="research-content" style="display: none;"> 
+    <img src="images/Nepenthe.jpg" alt="Nepenthe" class="work-image">
+    <p>
+       
+        „Nepenthe” [WIP] <br>
+        Digital Maquette <br>
+        2025 <br> 
+         
+    </p>
+    <p>Nepenthe—a genus of carnivorous plants whose passive yet inescapable traps I parallel to social media’s algorithmic pull. <br> <br> A translucent sculptural pitcher plant houses a screen looping YouTube Shorts curated solely by U.S. location-based recommendations, highlighting how engagement-driven algorithms shape ideology and identity. <br> <br> Engagement-optimized feedback loops amplify divisive content without intent, commodifying attention and emotional response. Nepenthe doesn’t advocate censorship but reveals the biases embedded in supposedly neutral systems. By immersing viewers in algorithmically generated content, the piece exposes how media consumption both defines and consumes us. Through participation, viewers complete the work—engaging with a system that reflects and critiques digital consumption. Nepenthe invites us to confront the unseen forces shaping our digital reality, implicating both algorithm and user in perpetual engagement. <br><br> Data Collection: A YouTube Shorts account will be created using a VPN and private browser, isolating geographic-based recommendations. Screen recordings will analyze content trends and ideological bias. <br><br> Physical Installation: A transparent sculptural pitcher plant, vacuum-molded from polycarbonate or recycled plastics, large enough for a viewer to peer inside. <br> <br>Embedded Technology: A looping screen with speakers; internal mechanics (Raspberry Pi, wiring) submerged in mineral oil, mimicking digestive fluids and reinforcing passive entrapment. </p>
+</div>
 
     <!-- New Adjacent Box -->
     <div id="research-box" class="research-content" style="display: none;"></div>
@@ -221,6 +210,3 @@
 
   gtag('config', 'G-KCX7KC7FP7');
 </script>
-
-
-
