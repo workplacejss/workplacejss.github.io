@@ -45,6 +45,10 @@ h1 {
     color: #551A8B; /* Changes to purple when clicked */
 }
 
+#menu .clicked {
+    color: #551A8B !important;
+}
+
 #content {
     flex-grow: 1;
     padding: 20px;

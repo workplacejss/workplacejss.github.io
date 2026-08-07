@@ -12,30 +12,51 @@
         <div id="header-title" href="index.html">[WORKPLACE<br>JSS]</div>
         <p id="works-btn" onclick="toggleWorks()">WORKS</p>
         <div id="works-list">
-            <a href="#" onclick="showWork('works-and-days')">Works and Days</a>
-            <a href="#" onclick="showWork('GMO-Tomato')">GMO Tomato</a>
-            <a href="#" onclick="showWork('thresh')">Thresh</a>
-            <a href="#" onclick="showWork('claustrum')">Claustrum</a>
-            <a href="#" onclick="showWork('eliza')">ELIZA</a>
-            <a href="#" onclick="showWork('body-in-flux')">Body in Flux</a>
-            <a href="#" onclick="showWork('stasis')">Stasis</a>
-            <a href="#" onclick="showWork('effigy-1')">Effigy 1</a>
-            <a href="#" onclick="showWork('grafting')">Grafting</a>
-            <a href="#" onclick="showWork('adornations')">Adornations</a>
+            <a href="#bibliomancy" onclick="showWork('bibliomancy')">Bibliomancy</a>
+            <a href="#works-and-days" onclick="showWork('works-and-days')">Works and Days</a>
+            <a href="#GMO-Tomato" onclick="showWork('GMO-Tomato')">GMO Tomato</a>
+            <a href="#thresh" onclick="showWork('thresh')">Thresh</a>
+            <a href="#claustrum" onclick="showWork('claustrum')">Claustrum</a>
+            <a href="#eliza" onclick="showWork('eliza')">ELIZA</a>
+            <a href="#body-in-flux" onclick="showWork('body-in-flux')">Body in Flux</a>
+            <a href="#stasis" onclick="showWork('stasis')">Stasis</a>
+            <a href="#effigy-1" onclick="showWork('effigy-1')">Effigy 1</a>
+            <a href="#grafting" onclick="showWork('grafting')">Grafting</a>
+            <a href="#adornations" onclick="showWork('adornations')">Adornations</a>
         </div>
         <p id="research-btn" onclick="toggleResearch()">RESEARCH</p> <!-- Added Button -->
     <div id="research-list" style="display:none;">
-        <a href="#" onclick="showResearch('research-nepenthe')">Nepenthe</a>
-        <a href="#" onclick="showResearch('research-AHNSLAYBLEFM')">AHNLAYBLEFM</a>
-        <a href="#" onclick="showResearch('research-Fediverse')">Fediverse</a>
+        <a href="#research-nepenthe" onclick="showResearch('research-nepenthe')">Nepenthe</a>
+        <a href="#research-AHNSLAYBLEFM" onclick="showResearch('research-AHNSLAYBLEFM')">AHNLAYBLEFM</a>
+        <a href="#research-Fediverse" onclick="showResearch('research-Fediverse')">Fediverse</a>
     </div>
-    <p><a href="#" id="about-btn" onclick="showAbout()">ABOUT</a></p>
-    <p><a href="#" id="contact-btn" onclick="showContact()">CONTACT</a></p>
+    <p><a href="#about" id="about-btn" onclick="showAbout()">ABOUT</a></p>
+    <p><a href="#contact" id="contact-btn" onclick="showContact()">CONTACT</a></p>
 </div>
     </div>
 
     <div id="content">
         <div id="work-content">
+            <div id="bibliomancy" class="work-content">
+    <div class="work-box">
+        <div style="padding:145% 0 0 0;position:relative;">
+            <iframe
+                src="bibliomancy/index.html"
+                frameborder="0"
+                allow="fullscreen"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                title="Interactive Bibliomancy"
+            ></iframe>
+        </div>
+        <p>
+            „Bibliomancy”<br>
+            Interactive Generative Work<br>
+            Wikipedia Archive, Code, Chance<br>
+            2026
+        </p>
+        <p>Three text fragments and one image are selected by chance from unrelated encyclopedia articles. Click Draw or press the spacebar to consult the archive again.</p>
+    </div>
+</div>
             <div id="works-and-days" class="work-content">
     <div class="work-box">
            <img src="images/Works and Days.jpg" alt="Works and Days" class="work-image">

@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: white;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    overflow: hidden;
+}
+
+.stage {
+    background: white;
+    border: 1px solid #a9a9a9;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.lines {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3.95vh;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 24.3%;
+}
+
+.lines p {
+    font-size: clamp(17px, 4.3vw, 27px);
+    line-height: 1.2;
+    margin: 0;
+    max-width: 90%;
+    min-height: 1.2em;
+    text-align: center;
+}
+
+.stage.single-line .lines p:not(:first-child) {
+    display: none;
+}
+
+.lines .link {
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+#chance-image {
+    height: auto;
+    left: 50%;
+    max-height: min(420px, 44vh);
+    max-width: calc(100% - 60px);
+    object-fit: contain;
+    position: absolute;
+    top: 46.2%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+#chance-image[hidden] {
+    display: none;
+}
+
+.draw-button {
+    background: #f0f0f0;
+    border: 2px outset #e5e5e5;
+    border-radius: 0;
+    bottom: 12px;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 17px;
+    height: 34px;
+    left: 50%;
+    line-height: 20px;
+    min-width: 51px;
+    padding: 4px 5px 5px;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.draw-button:active {
+    border-style: inset;
+}
+
+.draw-button:disabled {
+    color: #777777;
+}

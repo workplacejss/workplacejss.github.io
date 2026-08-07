@@ -1,180 +1,142 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const worksItems = document.querySelectorAll('#works-list a');
-    const menuItems = document.querySelectorAll('#menu a, #works-btn');
+const VISITED_PURPLE = '#551A8B';
 
-    function markClicked(item) { 
-        item.style.color = '#551A8B'; // Make clicked item purple
-        item.classList.add('clicked');
+function markClicked(item) {
+    if (!item) {
+        return;
     }
+    item.classList.add('clicked');
+    item.style.color = VISITED_PURPLE;
+}
 
-    function resetUnclicked() {
-        menuItems.forEach(link => {
-            if (!link.classList.contains('clicked')) {
-                link.style.color = '#0000EE'; // Reset unclicked items to blue
-            }
-        });
+function hideAllViews() {
+    document.querySelectorAll('.work-content, .research-content').forEach(element => {
+        element.style.display = 'none';
+    });
+    const researchBox = document.getElementById('research-box');
+    if (researchBox) {
+        researchBox.style.display = 'none';
     }
+}
 
-    // Handle Works menu items
-    worksItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-        });
+function linkForHash(containerSelector, hash) {
+    return [...document.querySelectorAll(`${containerSelector} a`)].find(link => {
+        return link.getAttribute('href') === `#${hash}`;
     });
+}
 
-    // Handle About & Contact menu items
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            markClicked(this);
-            resetUnclicked(); // Reset only unclicked items
-        });
-    });
-});
+function rememberLink(event) {
+    event.preventDefault();
+    markClicked(event.currentTarget);
+
+    const hash = event.currentTarget.getAttribute('href');
+    if (hash && hash !== '#' && window.location.hash !== hash) {
+        window.history.pushState(null, '', hash);
+    }
+    applyRouteFromUrl();
+}
 
 function toggleWorks() {
-    let worksList = document.getElementById("works-list");
-    let worksBtn = document.getElementById("works-btn");
-    let researchList = document.getElementById("research-list"); // Reference to the research list
+    const worksList = document.getElementById('works-list');
+    const researchList = document.getElementById('research-list');
+    const worksButton = document.getElementById('works-btn');
 
-    // Hide the research list if it's open
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-        document.getElementById("research-btn").style.color = "#0000EE"; // Reset research button to blue
+    if (researchList.style.display === 'block') {
+        researchList.style.display = 'none';
     }
-
-    // Toggle the works list
-    if (worksList.style.display === "block") {
-        worksList.style.display = "none";
-        worksBtn.style.color = "#0000EE"; // Reset to blue when closed
-    } else {
-        worksList.style.display = "block";
-        worksBtn.style.color = "#551A8B"; // Keep purple when open
-    }
-}
-
-window.onload = function() {
-    document.getElementById("works-btn").style.color = "#0000EE"; // Reset "WORKS" to blue
-
-    // Reset all menu items (CV, About, Contact)
-    let menuItems = document.querySelectorAll("#menu a"); 
-    menuItems.forEach(item => {
-        item.style.color = "#0000EE"; // Reset to blue
-    });
-
-    // Set header color to black
-    document.getElementById("header-title").style.color = "#000000";
-
-    // Add event listeners to menu items
-    menuItems.forEach(item => {
-        item.addEventListener("click", function() {
-            menuItems.forEach(link => {
-                if (!link.classList.contains('clicked')) {
-                    link.style.color = "#0000EE"; // Reset unclicked items to blue
-                }
-            });
-            this.style.color = "#551A8B"; // Make clicked one purple
-            this.classList.add('clicked');
-        });
-    });
-};
-
-function showWork(workId) {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-    
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
-    
-    // Show the requested work
-    document.getElementById(workId).style.display = 'block';
-    
-    // Update link colors in works list
-    document.querySelectorAll("#works-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
-    });
-    
-    // Highlight the clicked link
-    const clickedLink = document.querySelector(`[onclick="showWork('${workId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Change to purple
-    }
-}
-
-function showAbout() {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-    
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
-    
-    // Show about section
-    document.getElementById('about-section').style.display = 'block';
-}
-
-function showContact() {
-    // Hide ALL content divs - both work and research
-    document.querySelectorAll('.work-content, .research-content').forEach(div => {
-        div.style.display = 'none';
-    });
-    
-    // Also explicitly hide the research-box
-    document.getElementById('research-box').style.display = 'none';
-    
-    // Show contact section
-    document.getElementById('contact-section').style.display = 'block';
+    worksList.style.display = worksList.style.display === 'block' ? 'none' : 'block';
+    markClicked(worksButton);
 }
 
 function toggleResearch() {
-    let researchList = document.getElementById("research-list");
-    let researchBtn = document.getElementById("research-btn");
-    let worksList = document.getElementById("works-list"); // Reference to the works list
+    const researchList = document.getElementById('research-list');
+    const worksList = document.getElementById('works-list');
+    const researchButton = document.getElementById('research-btn');
 
-    // Hide the works list if it's open
-    if (worksList.style.display === "block") {
-        worksList.style.display = "none";
-        document.getElementById("works-btn").style.color = "#0000EE"; // Reset works button to blue
+    if (worksList.style.display === 'block') {
+        worksList.style.display = 'none';
+    }
+    researchList.style.display = researchList.style.display === 'block' ? 'none' : 'block';
+    markClicked(researchButton);
+}
+
+function showWork(workId) {
+    const selectedWork = document.getElementById(workId);
+    if (!selectedWork) {
+        return;
     }
 
-    // Toggle the research list
-    if (researchList.style.display === "block") {
-        researchList.style.display = "none";
-        researchBtn.style.color = "#0000EE"; // Reset to blue when closed
-    } else {
-        researchList.style.display = "block";
-        researchBtn.style.color = "#551A8B"; // Change to purple when open
-    }
+    hideAllViews();
+    selectedWork.style.display = 'block';
+    markClicked(linkForHash('#works-list', workId));
+    markClicked(document.getElementById('works-btn'));
+}
+
+function showAbout() {
+    hideAllViews();
+    document.getElementById('about-section').style.display = 'block';
+    markClicked(document.getElementById('about-btn'));
+}
+
+function showContact() {
+    hideAllViews();
+    document.getElementById('contact-section').style.display = 'block';
+    markClicked(document.getElementById('contact-btn'));
 }
 
 function showResearch(researchId) {
-    // Hide all other content (works and research sections)
-    document.querySelectorAll('.work-content, .research-content').forEach(div => div.style.display = 'none');
-
-    // Find the selected research content by ID
     const selectedResearch = document.getElementById(researchId);
-    const researchBox = document.getElementById("research-box");
+    const researchBox = document.getElementById('research-box');
 
+    hideAllViews();
     if (selectedResearch) {
-        // Copy the content of the selected research into the research-box
         researchBox.innerHTML = selectedResearch.innerHTML;
-        researchBox.style.display = "block"; // Show the research-box
     } else {
-        // Default message if no research content is found
-        researchBox.innerHTML = "<p>Select a research topic to view details.</p>";
-        researchBox.style.display = "block"; // Show the research-box
+        researchBox.innerHTML = '<p>Select a research topic to view details.</p>';
+    }
+    researchBox.style.display = 'block';
+    markClicked(linkForHash('#research-list', researchId));
+    markClicked(document.getElementById('research-btn'));
+}
+
+function applyRouteFromUrl() {
+    let route;
+    try {
+        route = decodeURIComponent(window.location.hash.slice(1));
+    } catch (error) {
+        return;
     }
 
-    // Reset colors for research list links
-    document.querySelectorAll("#research-list a").forEach(link => {
-        link.style.color = "#0000EE"; // Reset to blue
-    });
+    if (!route) {
+        hideAllViews();
+        return;
+    }
+    if (route === 'about' || route === 'about-section') {
+        showAbout();
+        return;
+    }
+    if (route === 'contact' || route === 'contact-section') {
+        showContact();
+        return;
+    }
 
-    // Highlight the clicked link
-    const clickedLink = document.querySelector(`[onclick="showResearch('${researchId}')"]`);
-    if (clickedLink) {
-        clickedLink.style.color = "#551A8B"; // Change to purple
+    const target = document.getElementById(route);
+    if (!target) {
+        return;
+    }
+    if (target.classList.contains('work-content')) {
+        showWork(route);
+    } else if (target.classList.contains('research-content') && route !== 'research-box') {
+        showResearch(route);
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header-title').style.color = '#000000';
+
+    document.querySelectorAll('#works-list a, #research-list a, #about-btn, #contact-btn')
+        .forEach(link => link.addEventListener('click', rememberLink));
+
+    applyRouteFromUrl();
+});
+
+window.addEventListener('hashchange', applyRouteFromUrl);
