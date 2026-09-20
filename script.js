@@ -130,7 +130,31 @@ function applyRouteFromUrl() {
     }
 }
 
+// The bibliomancy section previously missed its closing div. Browsers therefore
+// treated every later work as a child of it, so hiding bibliomancy also hid all
+// subsequent works. Normalize that malformed nesting until the HTML is cleaned
+// up, and move the Wikimancy description out of the iframe's sizing wrapper.
+function repairBibliomancyMarkup() {
+    const bibliomancy = document.getElementById('bibliomancy');
+    const worksContainer = document.getElementById('work-content');
+    if (!bibliomancy || !worksContainer) {
+        return;
+    }
+
+    [...bibliomancy.querySelectorAll('.work-content, .research-content')]
+        .filter(element => element !== bibliomancy)
+        .forEach(element => worksContainer.appendChild(element));
+
+    const workBox = bibliomancy.querySelector('.work-box');
+    const frameWrapper = workBox && workBox.querySelector(':scope > div');
+    if (frameWrapper) {
+        [...frameWrapper.querySelectorAll(':scope > p')]
+            .forEach(paragraph => frameWrapper.after(paragraph));
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    repairBibliomancyMarkup();
     document.getElementById('header-title').style.color = '#000000';
 
     document.querySelectorAll('#works-list a, #research-list a, #about-btn, #contact-btn')
