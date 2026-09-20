@@ -134,7 +134,6 @@ function applyRouteFromUrl() {
 // treated every later work as a child of it, so hiding bibliomancy also hid all
 // subsequent works. Normalize that malformed nesting until the HTML is cleaned
 // up, and move the Wikimancy description out of the iframe's sizing wrapper.
-function repairBibliomancyMarkup() {
     const bibliomancy = document.getElementById('bibliomancy');
     const worksContainer = document.getElementById('work-content');
     if (!bibliomancy || !worksContainer) {
