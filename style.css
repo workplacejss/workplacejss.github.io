@@ -19,14 +19,16 @@ h1 {
     text-decoration: underline;
 }
 #works-list {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
-    left: 145px; /* Moves it to the right of the menu */
-    top: 100px; /* Aligns it properly */
+    left: 145px;
+    top: 100px;
     background-color: white;
     border: 1px solid black;
     padding: 25px;
     width: 140px;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
 #works-list a {
