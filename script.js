@@ -159,9 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach(link => link.addEventListener('click', rememberLink));
 
     applyRouteFromUrl();
+});
 
 window.addEventListener('hashchange', applyRouteFromUrl);
-
-     <script data-goatcounter="https://workplacejss.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-});
