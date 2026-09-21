@@ -160,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyRouteFromUrl();
 
-    <script data-goatcounter="https://workplacejss.goatcounter.com/count"
+window.addEventListener('hashchange', applyRouteFromUrl);
+
+     <script data-goatcounter="https://workplacejss.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 });
-
-window.addEventListener('hashchange', applyRouteFromUrl);
