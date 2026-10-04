@@ -74,14 +74,12 @@ h1 {
 }
 
 .work-box {
-    position: absolute; /* or fixed if you want it to stay in place while scrolling */
-    top: 100px;  /* Move it down */
-    left: 400px; /* Move it right */
+    position: relative; /* Change from absolute to relative */
     border: 1px solid black;
     padding: 25px;
     background-color: white;
-    width: 600px; /* Adjust width */
-    margin-bottom: 150px;
+    width: 600px;
+    margin: 20px auto; /* Center and add spacing */
 }
 
 .work-image {
